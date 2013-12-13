@@ -1,0 +1,27 @@
+{
+  "description": "UNKNOWN",
+  "checksums": {
+    "manifests/init.pp": "492cc99c727167ed9c67c144281b7cab",
+    "manifests/params.pp": "cd033f2aa5cd38b3d4c675e06aea7bad",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "tests/init.pp": "ec053d8d4f5f5df03de8ef83f5800fbe",
+    "Modulefile": "b7a2110431d9641a2413cb47cf9076ba",
+    "templates/local_settings.py.erb": "5250feef612e6cf08ab7c09f1fe0b981",
+    "manifests/service.pp": "f9ce7f3e311041e180c00aa4c2d7a175",
+    "README": "44b2fc12a69d60f8e3f5096bede5a2dd",
+    "templates/ports.conf.erb": "193df0f923f53530fb8b228dd706107e"
+  },
+  "name": "pushstack-horizon",
+  "summary": "UNKNOWN",
+  "source": "UNKNOWN",
+  "author": "pushstack",
+  "version": "0.1.0",
+  "license": "Apache License, Version 2.0",
+  "project_page": "UNKNOWN",
+  "types": [
+
+  ],
+  "dependencies": [
+
+  ]
+}

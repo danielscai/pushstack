@@ -1,0 +1,24 @@
+server {
+    listen <%= @api_nginx_port%>;
+    server_name <%= @api_nginx_servername%>;
+    keepalive_timeout 120;
+
+    # static file do not pass uwsgi
+    location /docs {
+        alias <%= @api_path %>/docs;
+    }
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass <%= @api_uwsgi_host %>:<%= @api_uwsgi_port %>;
+        # uwsgi_pass unix:///tmp/uwsgi.sock;
+
+        uwsgi_param UWSGI_PYHOME <%= @api_path %>;
+        uwsgi_param UWSGI_CHDIR <%= @api_path %>;
+        uwsgi_param UWSGI_MODULE manage;
+        uwsgi_param UWSGI_CALLABLE app;
+        #uwsgi_param UWSGI_SCRIPT main;
+    }
+    
+    error_page 404 /404.html;
+}

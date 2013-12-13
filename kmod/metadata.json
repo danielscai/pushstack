@@ -1,0 +1,27 @@
+{
+  "checksums": {
+    "Modulefile": "d0b277eb7e27508ee008597e79fc6501",
+    "manifests/blacklist.pp": "5d1f70a5e2289f92a6005b7e7c5b2dd3",
+    "README": "47102f7deca0e1a06311383a084f7314",
+    "manifests/alias.pp": "008a880c6f9ba9d7feeacef5db5f47ab",
+    "manifests/generic.pp": "f341dead44b3c5b3063c60fa24a7abee",
+    "manifests/install.pp": "ee7ecfc019328539f4e330e9143358e1",
+    "templates/redhat.modprobe.erb": "0b93748352a4d0b4e83e9bd70da9abde",
+    "manifests/init.pp": "8080f78b6280710dcae3fd4e08862822",
+    "manifests/load.pp": "30f7b92cf731ea614aba237f92d1ded0"
+  },
+  "source": "UNKNOWN",
+  "types": [
+
+  ],
+  "license": "Apache License, Version 2.0",
+  "dependencies": [
+
+  ],
+  "summary": "Manage Linux kernel modules with Puppet",
+  "name": "camptocamp-kmod",
+  "description": "Manage Linux kernel modules with Puppet",
+  "version": "0.0.1",
+  "project_page": "git://github.com/camptocamp/puppet-kmod.git",
+  "author": "camptocamp"
+}

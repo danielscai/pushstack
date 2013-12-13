@@ -1,0 +1,46 @@
+# Connector settings (required):
+# -----------------------------
+
+direct_addressing = 1
+connector = rabbitmq
+
+# RabbitMQ connector settings:
+plugin.rabbitmq.vhost = /mcollective
+plugin.rabbitmq.pool.size = 2
+plugin.rabbitmq.pool.1.host = <%= mco_host %>
+plugin.rabbitmq.pool.1.port = <%= mco_port %>
+plugin.rabbitmq.pool.1.user = <%= mco_user %>
+plugin.rabbitmq.pool.1.password = <%= mco_pass %>
+
+plugin.rabbitmq.pool.2.host = kickstart
+plugin.rabbitmq.pool.2.port = 61613
+plugin.rabbitmq.pool.2.user = <%= mco_user %>
+plugin.rabbitmq.pool.2.password = <%= mco_pass %>
+
+# Plugins
+securityprovider = psk
+plugin.psk = <%= mco_psk %>
+
+# Facts
+factsource = yaml
+plugin.yaml = /etc/mcollective/facts.yaml
+fact_cache_time = 300
+
+# Subcollectives (optional):
+# -------------------------
+
+collectives = mcollective,uk_collective
+main_collective = mcollective
+
+# Logging:
+# -------
+
+logger_type = console
+loglevel = warn
+
+# Platform defaults:
+# -----------------
+
+#daemonize = 1
+libdir = <%= mco_libdir %>
+#ssl_cipher = aes-256-cbc

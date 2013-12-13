@@ -1,0 +1,33 @@
+[DEFAULT]
+# Show debugging output in log (sets DEBUG log level output)
+# debug = true
+
+# The LBaaS agent will resync its state with Quantum to recover from any
+# transient notification or rpc errors. The interval is number of
+# seconds between attempts.
+# periodic_interval = 10
+
+# OVS based plugins(OVS, Ryu, NEC, NVP, BigSwitch/Floodlight)
+interface_driver = <%= @lb_driver %>
+# OVS based plugins(Ryu, NEC, NVP, BigSwitch/Floodlight) that use OVS
+# as OpenFlow switch and check port status
+# ovs_use_veth = True
+# LinuxBridge
+# interface_driver = quantum.agent.linux.interface.BridgeInterfaceDriver
+
+# The agent requires a driver to manage the loadbalancer.  HAProxy is the
+# opensource version.
+device_driver = quantum.plugins.services.agent_loadbalancer.drivers.haproxy.namespace_driver.HaproxyNSDriver
+
+# Allow overlapping IP (Must have kernel build with CONFIG_NET_NS=y and
+# iproute2 package that supports namespaces).
+use_namespaces = <%= @use_namespaces %>
+
+# The user group
+# user_group = nogroup
+
+auth_url = http://<%= scope.lookupvar('openstack::params::keystone_vip_ip') %>:35357/v2.0
+auth_region = RegionOne
+admin_tenant_name=<%= scope.lookupvar('openstack::params::quantum_tenant') %>
+admin_user=<%= scope.lookupvar('openstack::params::quantum_user') %>
+admin_password=<%= scope.lookupvar('openstack::params::quantum_password') %>

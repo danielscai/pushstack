@@ -1,0 +1,15 @@
+[DEFAULT]
+# The Quantum user information for accessing the Quantum API.
+auth_url = http://<%= scope.lookupvar('openstack::params::keystone_vip_ip') %>:35357/v2.0
+auth_region = RegionOne
+admin_tenant_name=<%= scope.lookupvar('openstack::params::quantum_tenant') %>
+admin_user=<%= scope.lookupvar('openstack::params::quantum_user') %>
+admin_password=<%= scope.lookupvar('openstack::params::quantum_password') %>
+
+# IP address used by Nova metadata server
+nova_metadata_ip = <%= scope.lookupvar('openstack::params::nova_metadata_ip') %>
+
+# TCP Port used by Nova metadata server
+nova_metadata_port = <%= scope.lookupvar('openstack::params::nova_metadata_port') %>
+
+metadata_proxy_shared_secret = <%= scope.lookupvar('openstack::params::metadata_proxy_shared_secret') %>

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+MYSQL_BIN=/usr/bin/mysql
+
+MYSQL_ROOT_USER=root
+MYSQL_ROOT_PASS=""
+MYSQL_ROOT_HOST=localhost
+
+ZABBIX_SQL_DIR="/root/sh"
+
+MYSQL_COMMAND="${MYSQL_BIN} -h${MYSQL_ROOT_HOST} -u${MYSQL_ROOT_USER}"
+[ ${#MYSQL_ROOT_PASS} != 0 ] && MYSQL_COMMAND="${MYSQL_BIN} -h${MYSQL_ROOT_HOST} -u${MYSQL_ROOT_USER} -p${MYSQL_ROOT_PASS}"
+
+
+zbx_DBs="<% @zbx_DBs.each do |zbx_DB| %><%= zbx_DB['dbfunc'] %> <%= zbx_DB['dbname'] %> <%= zbx_DB['dbuser'] %> <%= zbx_DB['dbpass'] %> <%= zbx_DB['dballowhost'] %>
+<% end %>"
+
+echo "${zbx_DBs}" | egrep -v '^ *$' | while read f n u p h; do
+    if [ "$f" == server ];then
+       sql_source="source ${ZABBIX_SQL_DIR}/schema.sql; source ${ZABBIX_SQL_DIR}/images.sql; source ${ZABBIX_SQL_DIR}/data.sql;"
+    elif [ "$f" == proxy ]; then
+       sql_source="source ${ZABBIX_SQL_DIR}/schema.sql;"
+    fi
+
+    if [ ! -d /var/lib/mysql/$n ]; then
+        #ZABBIX_SQL_DIR="$(rpm -ql zabbix-${f}-mysql | egrep 'create$')"
+        nohup ${MYSQL_COMMAND} -e "create database $n character set utf8;
+            grant all privileges on $n.* to '${u}'@'${h}' identified by '${p}';
+            flush privileges;
+            use $n;
+            ${sql_source}" &
+    else
+        echo "$n is exist."
+    fi
+done

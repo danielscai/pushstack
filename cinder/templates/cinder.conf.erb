@@ -1,0 +1,34 @@
+[DEFAULT]
+debug = true
+sql_connection = mysql://<%= scope.lookupvar('openstack::params::mysql_cinder_user') %>:<%= scope.lookupvar('openstack::params::mysql_cinder_password') %>@<%= scope.lookupvar('openstack::params::mysql_server_host') %>:<%= scope.lookupvar('openstack::params::mysql_server_port') %>/<%= scope.lookupvar('openstack::params::mysql_cinder_db')%>
+rabbit_host = <%= scope.lookupvar('openstack::params::rabbitmq_vip') %>
+rabbit_userid = <%= scope.lookupvar('openstack::params::rabbitmq_user') %>
+rabbit_password = <%= scope.lookupvar('openstack::params::rabbitmq_password') %>
+rabbit_port =  <%= scope.lookupvar('openstack::params::rabbitmq_port') %>
+
+rootwrap_config=/etc/cinder/rootwrap.conf
+api_paste_config = /etc/cinder/api-paste.ini
+iscsi_helper=ietadm
+volume_name_template = volume-%s
+volume_group = cinder-volumes
+verbose = True
+auth_strategy = keystone
+#osapi_volume_listen_port=5900
+
+enable_v2_api=true
+glance_api_version = 2 
+osapi_volume_listen= <%= scope.lookupvar('openstack::params::cinder_api_ip') %>
+
+<% if @enabled_backends %>
+# Multipe Storage Backends - RBD
+enabled_backends=<%= @enabled_backends.join(',') %> 
+<% @enabled_backends.each do |backend| %> 
+[<%= backend %>] 
+rbd_pool=<%= backend %> 
+volume_driver=cinder.volume.drivers.rbd.RBDDriver
+volume_backend_name=<%= backend %> 
+<% end %>
+<% else %>
+volume_driver=cinder.volume.drivers.rbd.RBDDriver
+rbd_pool=<%= scope.lookupvar('openstack::params::cinder_pool') %>
+<% end %>

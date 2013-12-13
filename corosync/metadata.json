@@ -1,0 +1,280 @@
+{
+  "dependencies": [
+    {
+      "version_requirement": ">= 2.3.1",
+      "name": "puppetlabs/stdlib"
+    }
+  ],
+  "summary": "Sets up and manages Corosync",
+  "checksums": {
+    "manifests/service.pp": "3b661606542ef10998e34c079020ca1a",
+    "lib/puppet/provider/cs_property/crm.rb": "f2e1f47365aac453982fe2a74fc2f668",
+    "lib/puppet/provider/cs_colocation/crm.rb": "7687edd959447fdba955b641f2c58f8a",
+    "templates/corosync.conf.erb": "95ee1072edc1171991ebcf0a46bd8b53",
+    "spec/spec_helper.rb": "0db89c9a486df193c0e40095422e19dc",
+    "lib/puppet/type/cs_shadow.rb": "3bd93190f1472fd7eb36f9b2b83fe43d",
+    "tests/resources.pp": "f94925493937425fb6cf2fda522a7829",
+    "templates/service.erb": "76de7905a84719f962a2bbdf1c2b1b20",
+    "lib/puppet/provider/cs_shadow/crm.rb": "fd6f665081b2734001399b6733445313",
+    "tests/init.pp": "cb8f4189b7b6385c0123768060a586f0",
+    "lib/puppet/type/cs_primitive.rb": "4427da55229a0b45c6f5359ad108cfbd",
+    "lib/puppet/type/cs_order.rb": "2f4e9f1a323aa3cbc489ad4b5b7894be",
+    "lib/puppet/type/cs_commit.rb": "b25eabbbc57f6fe2fca542124f2664cf",
+    "spec/unit/puppet/type/cs_primitive_spec.rb": "22163248719a3e356d6c181bd861f7ff",
+    "README.md": "fc424622d3456de8c2ccdab3e4cbabac",
+    "Modulefile": "3ca23591f9be60960e128a0b24bdc8e8",
+    "manifests/reprobe.pp": "19afb4001b07a38f725795ecb8626f94",
+    "manifests/init.pp": "9729ac8e53fbc46fe000ac134a9939d9",
+    "lib/puppet/provider/cs_order/crm.rb": "a2179ccc0dc500f0d7009673fecbfede",
+    "lib/puppet/provider/corosync.rb": "05d52833c084b5e965f2c74cab50e4b9",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "Rakefile": "0254db5d3fc38c67a2c160d7296a24f8",
+    "lib/puppet/type/cs_colocation.rb": "788b20d29c74f81372df96085fb6a6f6",
+    "lib/puppet/provider/cs_primitive/crm.rb": "5a88e92d612a55f2c74c696c37003f07",
+    "templates/corosync.conf.udpu.erb": "58e36157c4d028208594e377f03e05f0",
+    "lib/puppet/provider/cs_commit/crm.rb": "7385ada06fac5ae87dbd1830a71ceabd",
+    "CHANGELOG": "0ae6d3c6bdcf9261ee63b512c6a55540",
+    "lib/puppet/provider/cs_group/crm.rb": "463e64275037f812c17bd6eb2fa1c311",
+    "lib/puppet/type/cs_property.rb": "ea2bda91ee5534e8270a3c449c5904d9",
+    "lib/puppet/type/cs_group.rb": "b2dadb7088ea18fcfaead35b112a7b61"
+  },
+  "project_page": "https://github.com/puppetlabs/puppetlabs-corosync",
+  "description": "This module is a set of manifests and types/providers for quickly setting up highly available clusters using Corosync",
+  "license": "APL 2.0",
+  "author": "puppetlabs",
+  "types": [
+    {
+      "properties": [
+        {
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`.",
+          "name": "ensure"
+        },
+        {
+          "doc": "Two Corosync primitives to be grouped together.  Colocation groups\n        come in twos and order is irrelavent.  Property will raise an error if\n        you do not provide a two value array.",
+          "name": "primitives"
+        },
+        {
+          "doc": "The priority of this colocation.  Primitives can be a part of\n        multiple colocation groups and so there is a way to control which\n        primitives get priority when forcing the move of other primitives.\n        This value can be an integer but is often defined as the string\n        INFINITY.",
+          "name": "score"
+        }
+      ],
+      "providers": [
+        {
+          "doc": "Specific provider for a rather specific type since I currently have no plan to\n        abstract corosync/pacemaker vs. keepalived.  This provider will check the state\n        of current primitive colocations on the system; add, delete, or adjust various\n        aspects.\n\nRequired binaries: `crm`, `crm_attribute`.",
+          "name": "crm"
+        }
+      ],
+      "doc": "Type for manipulating corosync/pacemaker colocation.  Colocation\n      is the grouping together of a set of primitives so that they travel\n      together when one of them fails.  For instance, if a web server vhost\n      is colocated with a specific ip address and the web server software\n      crashes, the ip address with migrate to the new host with the vhost.\n\n      More information on Corosync/Pacemaker colocation can be found here:\n\n      * http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Clusters_from_Scratch/_ensuring_resources_run_on_the_same_host.html",
+      "name": "cs_colocation",
+      "parameters": [
+        {
+          "doc": "Identifier of the colocation entry.  This value needs to be unique\n        across the entire Corosync/Pacemaker configuration since it doesn't have\n        the concept of name spaces per type.",
+          "name": "name"
+        },
+        {
+          "doc": "Corosync applies its configuration immediately. Using a CIB allows\n        you to group multiple primitives and relationships to be applied at\n        once. This can be necessary to insert complex configurations into\n        Corosync correctly.\n\n        This paramater sets the CIB this colocation should be created in. A\n        cs_shadow resource with a title of the same name as this value should\n        also be added to your manifest.",
+          "name": "cib"
+        }
+      ]
+    },
+    {
+      "properties": [
+        {
+          "doc": "",
+          "name": "cib"
+        }
+      ],
+      "providers": [
+        {
+          "doc": "Required binaries: `crm`, `crm_attribute`.",
+          "name": "crm"
+        }
+      ],
+      "doc": "This type is an implementation detail. DO NOT use it directly",
+      "name": "cs_commit",
+      "parameters": [
+        {
+          "doc": "",
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "properties": [
+        {
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`.",
+          "name": "ensure"
+        },
+        {
+          "doc": "An array of primitives to have in this group.  Must be listed in the\n          order that you wish them to start.",
+          "name": "primitives"
+        }
+      ],
+      "providers": [
+        {
+          "doc": "Provider to add, delete, manipulate primitive groups.\n\nRequired binaries: `/usr/sbin/crm`, `/usr/sbin/crm_attribute`.",
+          "name": "crm"
+        }
+      ],
+      "doc": "Type for manipulating Corosync/Pacemkaer group entries.\n      Groups are a set or resources (primitives) that need to be\n      grouped together.\n\n      More information can be found at the following link:\n\n      * http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/ch-advanced-resources.html#group-resources",
+      "name": "cs_group",
+      "parameters": [
+        {
+          "doc": "Name identifier of this group entry.  This value needs to be unique\n        across the entire Corosync/Pacemaker configuration since it doesn't have\n        the concept of name spaces per type.",
+          "name": "name"
+        },
+        {
+          "doc": "Corosync applies its configuration immediately. Using a CIB allows\n        you to group multiple primitives and relationships to be applied at\n        once. This can be necessary to insert complex configurations into\n        Corosync correctly.\n\n        This paramater sets the CIB this order should be created in. A\n        cs_shadow resource with a title of the same name as this value should\n        also be added to your manifest.",
+          "name": "cib"
+        }
+      ]
+    },
+    {
+      "properties": [
+        {
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`.",
+          "name": "ensure"
+        },
+        {
+          "doc": "First Corosync primitive.  Just like colocation, our primitives for\n        ording come in pairs but this time order matters so we need to define\n        which primitive starts the desired state change chain.",
+          "name": "first"
+        },
+        {
+          "doc": "Second Corosync primitive.  Our second primitive will move to the\n        desired state after the first primitive.",
+          "name": "second"
+        },
+        {
+          "doc": "The priority of the this ordered grouping.  Primitives can be a part\n        of multiple order groups and so there is a way to control which\n        primitives get priority when forcing the order of state changes on\n        other primitives.  This value can be an integer but is often defined\n        as the string INFINITY.",
+          "name": "score"
+        }
+      ],
+      "providers": [
+        {
+          "doc": "Specific provider for a rather specific type since I currently have no plan to\n        abstract corosync/pacemaker vs. keepalived. This provider will check the state\n        of current primitive start orders on the system; add, delete, or adjust various\n        aspects.\n\nRequired binaries: `crm`, `crm_attribute`.",
+          "name": "crm"
+        }
+      ],
+      "doc": "Type for manipulating Corosync/Pacemkaer ordering entries.  Order\n      entries are another type of constraint that can be put on sets of\n      primitives but unlike colocation, order does matter.  These designate\n      the order at which you need specific primitives to come into a desired\n      state before starting up a related primitive.\n\n      More information can be found at the following link:\n\n      * http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Clusters_from_Scratch/_controlling_resource_start_stop_ordering.html",
+      "name": "cs_order",
+      "parameters": [
+        {
+          "doc": "Name identifier of this ordering entry.  This value needs to be unique\n        across the entire Corosync/Pacemaker configuration since it doesn't have\n        the concept of name spaces per type.",
+          "name": "name"
+        },
+        {
+          "doc": "Corosync applies its configuration immediately. Using a CIB allows\n        you to group multiple primitives and relationships to be applied at\n        once. This can be necessary to insert complex configurations into\n        Corosync correctly.\n\n        This paramater sets the CIB this order should be created in. A\n        cs_shadow resource with a title of the same name as this value should\n        also be added to your manifest.",
+          "name": "cib"
+        }
+      ]
+    },
+    {
+      "properties": [
+        {
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`.",
+          "name": "ensure"
+        },
+        {
+          "doc": "A hash of params for the primitive.  Parameters in a primitive are\n        used by the underlying resource agent, each class using them slightly\n        differently.  In ocf scripts they are exported and pulled into the\n        script as variables to be used.  Since the list of these parameters\n        are completely arbitrary and validity not enforced we simply defer\n        defining a model and just accept a hash.",
+          "name": "parameters"
+        },
+        {
+          "doc": "A hash of operations for the primitive.  Operations defined in a\n        primitive are little more predictable as they are commonly things like\n        monitor or start and their values are in seconds.  Since each resource\n        agent can define its own set of operations we are going to defer again\n        and just accept a hash.  There maybe room to model this one but it\n        would require a review of all resource agents to see if each operation\n        is valid.",
+          "name": "operations"
+        },
+        {
+          "doc": "A hash of metadata for the primitive.  A primitive can have a set of\n        metadata that doesn't affect the underlying Corosync type/provider but\n        affect that concept of a resource.  This metadata is similar to Puppet's\n        resources resource and some meta-parameters, they change resource\n        behavior but have no affect of the data that is synced or manipulated.",
+          "name": "metadata"
+        },
+        {
+          "doc": "A hash of metadata for the master/slave primitive state.",
+          "name": "ms_metadata"
+        },
+        {
+          "doc": "Designates if the primitive is capable of being managed in a master/slave\n        state.  This will create a new ms resource in your Corosync config and add\n        this primitive to it.  Concequently Corosync will be helpful and update all\n        your colocation and order resources too but Puppet won't.  Currenlty we unmunge\n        configuraiton entries that start with ms_ so that you don't have to account for\n        name change in all our manifests.  Valid values are `true`, `false`.",
+          "name": "promotable"
+        }
+      ],
+      "providers": [
+        {
+          "doc": "Specific provider for a rather specific type since I currently have no\n        plan to abstract corosync/pacemaker vs. keepalived.  Primitives in\n        Corosync are the thing we desire to monitor; websites, ipaddresses,\n        databases, etc, etc.  Here we manage the creation and deletion of\n        these primitives.  We will accept a hash for what Corosync calls\n        operations and parameters.  A hash is used instead of constucting a\n        better model since these values can be almost anything.\n\nRequired binaries: `crm`, `crm_attribute`.",
+          "name": "crm"
+        }
+      ],
+      "doc": "Type for manipulating Corosync/Pacemaker primitives.  Primitives\n      are probably the most important building block when creating highly\n      available clusters using Corosync and Pacemaker.  Each primitive defines\n      an application, ip address, or similar to monitor and maintain.  These\n      managed primitives are maintained using what is called a resource agent.\n      These resource agents have a concept of class, type, and subsystem that\n      provides the functionality.  Regretibly these pieces of vocabulary\n      clash with those used in Puppet so to overcome the name clashing the\n      property and parameter names have been qualified a bit for clarity.\n\n      More information on primitive definitions can be found at the following\n      link:\n\n      * http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Clusters_from_Scratch/_adding_a_resource.html",
+      "name": "cs_primitive",
+      "parameters": [
+        {
+          "doc": "Name identifier of primitive.  This value needs to be unique\n        across the entire Corosync/Pacemaker configuration since it doesn't have\n        the concept of name spaces per type.",
+          "name": "name"
+        },
+        {
+          "doc": "Corosync class of the primitive.  Examples of classes are lsb or ocf.\n        Lsb funtions a lot like the init provider in Puppet for services, an init\n        script is ran periodically on each host to identify status, or to start\n        and stop a particular application.  Ocf of the other hand is a script with\n        meta-data and stucture that is specific to Corosync and Pacemaker.",
+          "name": "primitive_class"
+        },
+        {
+          "doc": "Corosync primitive type.  Type generally matches to the specific\n        'thing' your managing, i.e. ip address or vhost.  Though, they can be\n        completely arbitarily named and manage any number of underlying\n        applications or resources.",
+          "name": "primitive_type"
+        },
+        {
+          "doc": "Corosync primitive provider.  All resource agents used in a primitve\n        have something that provides them to the system, be it the Pacemaker or\n        redhat plugins...they're not always obvious though so currently you're\n        left to understand Corosync enough to figure it out.  Usually, if it isn't\n        obvious it is because there is only one provider for the resource agent.\n\n        To find the list of providers for a resource agent run the following\n        from the command line has Corosync installed:\n\n        * `crm configure ra providers <ra> <class>`",
+          "name": "provided_by"
+        },
+        {
+          "doc": "Corosync applies its configuration immediately. Using a CIB allows\n        you to group multiple primitives and relationships to be applied at\n        once. This can be necessary to insert complex configurations into\n        Corosync correctly.\n\n        This paramater sets the CIB this primitive should be created in. A\n        cs_shadow resource with a title of the same name as this value should\n        also be added to your manifest.",
+          "name": "cib"
+        }
+      ]
+    },
+    {
+      "properties": [
+        {
+          "doc": "The basic property that the resource should be in.  Valid values are `present`, `absent`.",
+          "name": "ensure"
+        },
+        {
+          "doc": "Value of the property.  It is expected that this will be a single\n        value but we aren't validating string vs. integer vs. boolean because\n        cluster properties can range the gambit.",
+          "name": "value"
+        }
+      ],
+      "providers": [
+        {
+          "doc": "Specific provider for a rather specific type since I currently have no plan to\n        abstract corosync/pacemaker vs. keepalived. This provider will check the state\n        of Corosync cluster configuration properties.\n\nRequired binaries: `crm`, `crm_attribute`, `cibadmin`.",
+          "name": "crm"
+        }
+      ],
+      "doc": "Type for manipulating corosync/pacemaker configuration properties.\n      Besides the configuration file that is managed by the module the contains\n      all these related Corosync types and providers, there is a set of cluster\n      properties that can be set and saved inside the CIB (A CIB being a set of\n      configuration that is synced across the cluster, it can be exported as XML\n      for processing and backup).  The type is pretty simple interface for\n      setting key/value pairs or removing them completely.  Removing them will\n      result in them taking on their default value.\n\n      More information on cluster properties can be found here:\n\n      * http://www.clusterlabs.org/doc/en-US/Pacemaker/1.1/html/Pacemaker_Explained/_cluster_options.html\n\n      P.S Looked at generating a type dynamically from the cluster's property\n      meta-data that would result in a single type with puppet type properties\n      of every cluster property...may still do so in a later iteration.",
+      "name": "cs_property",
+      "parameters": [
+        {
+          "doc": "Name identifier of this property.  Simply the name of the cluster\n        property.  Happily most of these are unique.",
+          "name": "name"
+        }
+      ]
+    },
+    {
+      "properties": [
+        {
+          "doc": "",
+          "name": "cib"
+        }
+      ],
+      "providers": [
+        {
+          "doc": "Required binaries: `crm`, `crm_attribute`.",
+          "name": "crm"
+        }
+      ],
+      "doc": "cs_shadow resources represent a Corosync shadow CIB. Any corosync\n      resources defined with 'cib' set to the title of a cs_shadow resource\n      will not become active until all other resources with the same cib\n      value have also been applied.",
+      "name": "cs_shadow",
+      "parameters": [
+        {
+          "doc": "Name of the shadow CIB to create and manage",
+          "name": "name"
+        }
+      ]
+    }
+  ],
+  "source": "https://github.com/puppetlabs/puppetlabs-corosync.git",
+  "name": "puppetlabs-corosync",
+  "version": "0.1.0"
+}

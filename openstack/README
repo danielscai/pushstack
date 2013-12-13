@@ -1,0 +1,39 @@
+openstack
+
+This is the openstack module.
+
+Global Variables 
+
+* api_bind_ip : facter vairables , default is $::ipaddress .
+   if eth0 if binded , use $::ipaddress_eth0 instead .
+
+* mysql_bind_ip : mysql bind-address in my.cnf 
+    if not specified , api_bind_ip will be used . 
+    if api_bind_ip not specified , $::ipaddress will be the default.
+
+* rabbitmq_bind_ip : rabbitmq bind ipaddress 
+    if not specified , api_bind_ip will be used.
+    if api_bind_ip not specified , $::ipaddress will be the default.
+
+* novncproxy_base_ip : nova.conf 
+     novcproxy_base_ip, nova get-vnc-console will use this ip to connectio to vnc
+
+
+
+
+
+
+License
+-------
+
+
+Contact
+-------
+
+
+Support
+-------
+
+Please log tickets and issues at our [Projects site](http://projects.example.com)
+
+

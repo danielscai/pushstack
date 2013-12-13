@@ -1,0 +1,30 @@
+{
+  "description": "puppet master/passenger/dashboard/agent etc. deploy-self.",
+  "version": "0.1.0",
+  "source": "UNKNOWN",
+  "types": [
+
+  ],
+  "project_page": "puppet deploy-self",
+  "license": "Apache License, Version 2.0",
+  "author": "pushstack",
+  "dependencies": [
+
+  ],
+  "summary": "Puppet Module",
+  "name": "pushstack-puppet",
+  "checksums": {
+    "README": "18fa6a723f9816cdf783e305cdc23320",
+    "tests/init.pp": "f9aa03c279f467afcc204203960cdc2f",
+    "Modulefile": "a46717dcf819948f02f758f28a97ab9d",
+    "manifests/agent.pp": "6ee8d7074a682def151f1fd3ca53c034",
+    "templates/autosign.erb": "cbaf25b4726681a6d6bbff5ee5f1c50c",
+    "templates/puppet.erb": "45c3709707fc44394c97b207d3766649",
+    "templates/puppet.conf.erb": "2c546425503bbddc104eda9043a60f96",
+    "templates/auth.conf.erb": "1891233908ecf2dd0fff8a73a3a97097",
+    "manifests/params.pp": "da7c5a19698cbe89c61f6baf62ce6e80",
+    "spec/spec_helper.rb": "09ccbe4bbe4503df6281e6ec7977973d",
+    "manifests/master.pp": "49f93e55724d18ca9d60d4d34c520ce5",
+    "manifests/init.pp": "6dd637ed74a11a551a9fec801e03bbf4"
+  }
+}

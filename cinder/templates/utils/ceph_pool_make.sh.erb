@@ -1,0 +1,13 @@
+#!/bin/bash
+<% if @enabled_backends %> 
+<% @enabled_backends.each do |backend| %>
+ceph osd pool create <%= backend %> 128
+cinder type-create <%= backend %>
+cinder type-key <%= backend %> set volume_backend_name=<%= backend %>
+<% end %>
+<% else %>
+ceph osd pool create <%= scope.lookupvar('openstack::params::glance_pool') %> 128
+ceph osd pool create <%= scope.lookupvar('openstack::params::cinder_pool') %> 128
+ceph osd pool set <%= scope.lookupvar('openstack::params::glance_pool') %> size 2
+ceph osd pool set <%= scope.lookupvar('openstack::params::cinder_pool') %> size 2
+<% end %>

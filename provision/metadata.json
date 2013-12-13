@@ -1,0 +1,37 @@
+{
+  "description": "UNKNOWN",
+  "license": "Apache License, Version 2.0",
+  "checksums": {
+    "templates/rc.local.erb": "14089f1b0196afc6f8db770b631b11e9",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "manifests/init.pp": "589bbb36e4c7bdc23255519c8b796964",
+    "manifests/params.pp": "90f9799634b69ff8ab9bb11053f3cbf2",
+    "Modulefile": "2351d1c18061e3eb8ea694675fc41f99",
+    "manifests/dns_resolver.pp": "a742ff434c39311c66e3d75ffacc358f",
+    "manifests/apt_client.pp": "42e8347e64dc93316d9c1a74db77dfea",
+    "manifests/rc_local.pp": "b66e2c1097247c36c13c421921d29b4d",
+    "manifests/puppet_agent.pp": "0da661c91b6147555ca9a3271fbd97ae",
+    "README": "5fe5cf7b892bf44fbe7a64b81d5b0ae3",
+    "tests/init.pp": "46972562d8394ff85fa8780c684a6b1a",
+    "manifests/sysctl_set.pp": "fc48b9810f5a3bd017d988b7c2b5f5ea"
+  },
+  "project_page": "UNKNOWN",
+  "dependencies": [
+    {
+      "version_requirement": ">= 0.1.0",
+      "name": "thias/sysctl"
+    },
+    {
+      "version_requirement": ">= 0.1.0",
+      "name": "example42/resolver"
+    }
+  ],
+  "source": "UNKNOWN",
+  "version": "0.1.0",
+  "types": [
+
+  ],
+  "author": "pushstack",
+  "summary": "UNKNOWN",
+  "name": "pushstack-provision"
+}

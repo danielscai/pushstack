@@ -1,0 +1,26 @@
+{
+  "version": "0.1.0",
+  "source": "UNKNOWN",
+  "dependencies": [
+
+  ],
+  "types": [
+
+  ],
+  "summary": "UNKNOWN",
+  "name": "pushstack-mysql",
+  "project_page": "UNKNOWN",
+  "author": "pushstack",
+  "license": "Apache License, Version 2.0",
+  "description": "UNKNOWN",
+  "checksums": {
+    "manifests/init.pp": "586d823fa1ef343b055772e282025481",
+    "README": "703694ad45c6b9f86423959c5d42ee70",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "tests/init.pp": "f94199bd6f64905a1819132e98c968fd",
+    "manifests/service.pp": "3bd0b42b2f36a4b301d5de896bb20209",
+    "Modulefile": "e6535c521f84bb16c8fd50c0f5c02ab1",
+    "manifests/params.pp": "81b16d318bf39b4ee276822b89d33e6a",
+    "templates/my.cnf.erb": "ddf03147906497b76ae8a9630a2176cf"
+  }
+}

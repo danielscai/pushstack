@@ -1,0 +1,17 @@
+#!/bin/sh
+
+
+(
+URL="http://production.cf.rubygems.org/rubygems/rubygems-1.3.7.tgz"
+PACKAGE=$(echo $URL | sed "s/\.[^\.]*$//; s/^.*\///")
+
+cd /opt && \
+[ ! -e /opt/rubygems-1.3.7.tgz ] && \
+wget -c -t10 -T20 -q $URL || \
+tar xfz $PACKAGE.tgz && \
+cd $PACKAGE && \
+ruby setup.rb
+/usr/sbin/update-alternatives --install /usr/bin/gem gem /usr/bin/gem1.8 1
+)
+
+/usr/bin/gem install --local /opt/rubygems-1.3.7/stomp-1.2.8.gem

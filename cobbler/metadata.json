@@ -1,0 +1,42 @@
+{
+  "dependencies": [
+
+  ],
+  "checksums": {
+    "manifests/service.pp": "0c64253c6441f6c2c6e74e418ed82e22",
+    "manifests/server.pp": "35a0109ab6ca6a1787d18d0f5f1a73cd",
+    "manifests/repo/sohu.pp": "4e4e70e4d8c56c6104502c8a10ed36f0",
+    "Modulefile": "809a8a1198efd81a699cc63b9d365be4",
+    "templates/dhcp.template.erb": "e113c5aae6b352f5a9b355a9e110c2d5",
+    "manifests/params.pp": "f5e063c40deab906497d6c1c293f3e50",
+    "manifests/install.pp": "81d233678361b58eafe16440c8d4b7a8",
+    "tests/init.pp": "f04affc2dd1fc61944cff0a206c262e4",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "templates/post_install_network_config_deb.erb": "04a62dcc3ad2d342d56ec2d623ec3659",
+    "templates/centos-6.4-x86_64.ks": "4d2c2cb2cd9d03aebfb2839d67baddcb",
+    "templates/esxi-5.1.0.1-x86_64.ks": "3c5989970b2f6bd40fdeca9db9b69a68",
+    "templates/ubuntu-12.04.2-x86_64.seed.erb": "fc282ca82810b8164fd07d41684e3a3b",
+    "README": "ef93597266fcae69c0ff94c19d4f990f",
+    "templates/preseed_late_default.erb": "6a2254f496d0ee71037ad8c5d48a64c4",
+    "manifests/init.pp": "8499ebba1b8763b0301c2302cc78f5e0",
+    "templates/settings.erb": "84c78451e22bdd9a7a3c3bc700892290",
+    "manifests/repo/epel.pp": "2045a623d2b509d8f61da77bd0440b6f",
+    "templates/rsync.erb": "674d0a326709332144e3b85087b30532",
+    "templates/modules.conf.erb": "8e7b8f1c503db47781cec9bfddc93293",
+    "manifests/repo/puppetlabs.pp": "0b688dba1b35e4aea99a6f9e90217b98",
+    "templates/debmirror.conf.erb": "d612520911110d12da0c402c52efabaf",
+    "manifests/config.pp": "8f4593bbc9c8afaf96cac0c1f7ad04f1",
+    "templates/post_fix_bug_deb.erb": "ca5fb784714a831198c7a4e7d94196c5"
+  },
+  "description": "UNKNOWN",
+  "source": "UNKNOWN",
+  "summary": "UNKNOWN",
+  "types": [
+
+  ],
+  "project_page": "UNKNOWN",
+  "version": "0.1.0",
+  "author": "pushstack",
+  "name": "pushstack-cobbler",
+  "license": "Apache License, Version 2.0"
+}

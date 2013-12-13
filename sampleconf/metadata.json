@@ -1,0 +1,47 @@
+{
+  "project_page": "UNKNOWN",
+  "dependencies": [
+
+  ],
+  "name": "pushstack-sampleconf",
+  "author": "pushstack",
+  "license": "Apache License, Version 2.0",
+  "source": "UNKNOWN",
+  "summary": "UNKNOWN",
+  "description": "UNKNOWN",
+  "types": [
+
+  ],
+  "version": "0.1.0",
+  "checksums": {
+    "scripts/puppet_agent_init.sh": "c89617c635f0725332c3858769863f25",
+    "example/manifests/nodes/default.pp": "a9df693a946b91c025ae2c95eb960c4b",
+    "env/iaas/manifests/openstack.pp": "2dcebe7e7473b14dcd1b29169fa0095f",
+    "example/manifests/nodes/dev/controller.pp": "7952c9378268fcaa95cec610d20cda81",
+    "scripts/os_init.sh": "49982ba0d1239cd519481396a9093d8a",
+    "example/auth.conf": "427d38bde1a33b868e128270eae0f7bb",
+    "example/manifests/conf/puppet.pp": "378569deedecbe3bd0406393a02930ea",
+    "Modulefile": "27cd309c40f14b7ba01dcea4c3ff6ff4",
+    "scripts/aa.sh": "fe35dae0e5c9e26f22b7e7bc83525800",
+    "example/autosign.conf": "b3136a962c78ed1216a17f6c0e30b9c0",
+    "example/manifests/nodes/dev/mysql.pp": "e6231ed7ba787600458c3e10fcab6f0b",
+    "example/manifests/conf/apt-cacher.pp": "388061ee552739491bb9b6554893cebf",
+    "example/puppet.conf": "812b4dc322de8f44a3070e3cb5e0426c",
+    "example/manifests/nodes/zabbix.pp": "ce9305f5b941a36ca95d888816789fa1",
+    "example/manifests/nodes/apt-cacher.pp": "4230714ac4aa8bb225b823a61ead1368",
+    "example/manifests/nodes/dev/compute.pp": "164cd70ce4b1ba12bd9a536300a8365f",
+    "example/manifests/conf/ntp.conf": "5de29a0f2fc30fb1c754aab05ec02c52",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "scripts/puppetlabs-release-precise.deb": "d41d8cd98f00b204e9800998ecf8427e",
+    "example/manifests/nodes/dev/network.pp": "3c4021ea90ba3e53e6e81db048ee17af",
+    "example/manifests/site.pp": "f04c25f6f28599a940195086801e39bc",
+    "tests/init.pp": "c7d45e06671230b79873f871ea363058",
+    "example/manifests/conf/openstack.pp": "9fd8a5819786f3f01cd78749b6a97738",
+    "README": "1be235ad6e97082c836b1cb1ab90a7d0",
+    "env/iaas/manifests/site.pp": "5fa78f0c6d12cce73e43c909dd848cb3",
+    "example/manifests/nodes/dev.pp": "0f2ef54e331185c471beb26c64975457",
+    "example/manifests/nodes/dev/rabbitmq.pp": "b1372bdd1b83b9e1936c10c2842b390f",
+    "example/manifests/conf/zabbix.pp": "d415c166eb731b4518c6e497da3ce3c0",
+    "manifests/init.pp": "b22a8cae6b7800b641510626ff8cbebb"
+  }
+}

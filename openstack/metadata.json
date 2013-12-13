@@ -1,0 +1,84 @@
+{
+  "license": "Apache License, Version 2.0",
+  "dependencies": [
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/keystone"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/nova"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/glance"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/horizon"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/neutron"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/cinder"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/oshotfix"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/pacemaker"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/provision"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/rabbitmq"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/mysql"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/sampleconf"
+    }
+  ],
+  "source": "UNKNOWN",
+  "summary": "openstack deployment puppet module",
+  "checksums": {
+    "manifests/repo/apt.pp": "ff56257bbfdfe3791814f0e19cd5dbc5",
+    "Modulefile": "4555b8fa9c1454129f5e999b530c7910",
+    "example/manifests/site.d/settings.pp": "f9052cb29261f7bf54234846f49d408d",
+    "tests/init.pp": "7d4cc166e628dc9bbe43908e2925455e",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "example/manifests/site.d/openstack.pp": "a7f9bf9e6e76c779b3226c61bfab62bc",
+    "example/manifests/site.d/ceph.pp": "00ed98d3e4d47b110f48f33ee7149b74",
+    "example/manifests/site.pp": "a9f15c0134ead5e9c73c93dae881459a",
+    "manifests/params.pp": "a51dc54b9396455e9d9b566c6f8e0b58",
+    "manifests/repo/rhel.pp": "9ae78d5a2ab8692f4eed3a7b4fe0c42d",
+    "templates/openstack-grizzly.asc.erb": "f4cfbe35d619193e85d766ca99925790",
+    "manifests/network.pp": "df4568e26f468f1727639b155148d862",
+    "manifests/repo_params.pp": "4ca1241d407e191f2c01c243e3eada53",
+    "manifests/controller.pp": "ff10cfb05f500745e3bf3d804e3530a0",
+    "README": "aed69588c23a3fe180fa4684bafb0a5d",
+    "manifests/compute.pp": "558f38d298eb487b00153121ad010c2d",
+    "templates/haproxy_openstack.cfg.erb": "7999302ec66dd37a5b9825c2ca495049",
+    "manifests/init.pp": "0ab606879da765607e1f4954ec28c893",
+    "manifests/repo.pp": "c44aafce0ac8227f4e26173c3373c359"
+  },
+  "description": "openstack deployment puppet module",
+  "version": "0.1.0",
+  "author": "pushstack",
+  "project_page": "dnscai.com",
+  "name": "pushstack-openstack",
+  "types": [
+
+  ]
+}

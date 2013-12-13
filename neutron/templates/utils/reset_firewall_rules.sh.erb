@@ -1,0 +1,13 @@
+for rule in `quantum security-group-rule-list | awk '{print $2}' | grep -v id `; do quantum security-group-rule-delete $rule ;  done 
+ 
+quantum security-group-rule-create --direction egress --protocol icmp default 
+quantum security-group-rule-create --direction egress --protocol tcp --port-range-min 1 --port-range-max 65535 default 
+quantum security-group-rule-create --direction egress --protocol udp --port-range-min 1 --port-range-max 65535 default 
+
+quantum security-group-rule-create --direction ingress --protocol icmp default
+quantum security-group-rule-create --direction ingress --protocol tcp --port-range-min 22 --port-range-max 22  default
+quantum security-group-rule-create --direction ingress --protocol tcp --port-range-min 80 --port-range-max 80  default
+quantum security-group-rule-create --direction ingress --protocol udp --port-range-min 22 --port-range-max 22  default
+quantum security-group-rule-create --direction ingress --protocol udp --port-range-min 80 --port-range-max 80  default
+
+quantum security-group-rule-list 

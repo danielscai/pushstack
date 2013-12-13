@@ -1,0 +1,11 @@
+# Fix bug: https://bugs.launchpad.net/ubuntu/+source/resolvconf/+bug/1000244/
+mkdir -p /run/resolvconf/interface
+tcouh /run/resolvconf/{resolv.conf,enable-updates}
+ln -sf /run/resolvconf/resolv.conf /etc/resolv.conf
+
+# Fix bug: https://bugs.launchpad.net/ubuntu/+source/linux/+bug/579572
+if /usr/bin/lspci | egrep -qi 'storage.*SAS1068'; then
+    cp -rp /etc/default/grub /etc/default/grub.old
+    sed -i '/GRUB_CMDLINE_LINUX_DEFAULT/s/=.*/="quiet splash rootdelay=60"/' /etc/default/grub
+    /usr/sbin/update-grub > /root/update-grub.log 2>&1
+fi

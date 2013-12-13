@@ -1,0 +1,28 @@
+{
+  "license": "Apache License, Version 2.0",
+  "dependencies": [
+
+  ],
+  "description": "UNKNOWN",
+  "source": "UNKNOWN",
+  "author": "pushstack",
+  "summary": "UNKNOWN",
+  "name": "pushstack-oshotfix",
+  "version": "0.1.0",
+  "checksums": {
+    "manifests/params.pp": "f38a9897de8af0c69c721013f83e9e2c",
+    "Modulefile": "e57628f570e47cf1c885a0f043342d5d",
+    "templates/websocketproxy.py.erb": "8b461d7eed72aea606011115ad669016",
+    "templates/nova_libvirt_driver.py.erb": "183597c5e23bd2303aec035f24b84c89",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "tests/init.pp": "79c6264d8df83a3097cf94ef109c2e91",
+    "manifests/init.pp": "7e4b462dd88852002f5e1efd5bc00c50",
+    "manifests/network_interface_attach.pp": "82a523ae84033658088074f01fc89e35",
+    "manifests/vnc_401_error.pp": "1b3b38483893d0f1113b87cfabffa31e",
+    "README": "99e0046bd8b49c59f3de531264319b4c"
+  },
+  "project_page": "UNKNOWN",
+  "types": [
+
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "dependencies": [
+
+  ],
+  "version": "0.1.0",
+  "types": [
+
+  ],
+  "name": "pushstack-nova",
+  "project_page": "UNKNOWN",
+  "checksums": {
+    "manifests/init.pp": "5c4b9c7d45fb2e49d95d550e6a4e2bdc",
+    "manifests/python_nova.pp": "dc0f9fed7c58566688cbd84eb09653af",
+    "manifests/params.pp": "d75f85de7b629682ec12cdd7d2cb6095",
+    "tests/init.pp": "7ab79d1dd3f12facd818b2b663731fad",
+    "Modulefile": "4960fb43505327e6e138186be753fd9c",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "templates/nova-compute.conf.erb": "a1df63deac29d8c0795c0d41eb22f71c",
+    "manifests/user.pp": "01fc09d02235af74b0f743763e771563",
+    "README": "dc7f09b68a86894fab8c6e4b7b4bab44",
+    "templates/libvirt-bin.conf.erb": "d67b86e76bc10a56ee1048b7cbb7e219",
+    "templates/nova-api-paste.ini.erb": "e0b242b1a932d745ac9e9dc6c6585a74",
+    "manifests/common.pp": "c954a07c82a9201137759f26187408fe",
+    "templates/api.py.erb": "ae0ce76ac8bb077a9e6c601dedde3e7e",
+    "manifests/compute.pp": "702cd09c12f0de8c501a8271215d1e71",
+    "templates/libvirtd.conf.erb": "2b8275e4201ff8dff89d9f12c5224520",
+    "templates/nova.conf.erb": "101fdff6e085346b4315869df3ccf304",
+    "templates/nova_id_rsa.erb": "4115700748f5171a17a38954dacff076",
+    "templates/qemu.conf.erb": "ff67f36592e4799d81bb27ef36e61e26",
+    "templates/nova_authorized_keys.erb": "fc31eb5f28777154c0780c830e0fd0c1",
+    "templates/sudoers.erb": "debc563babefbd72f4d86eb21b3ec521",
+    "manifests/api.pp": "0b12863117c02c42807787bb37aa6d49",
+    "manifests/kvm.pp": "976e5546634f893c9840e3a128186525"
+  },
+  "source": "UNKNOWN",
+  "author": "pushstack",
+  "license": "Apache License, Version 2.0",
+  "summary": "UNKNOWN",
+  "description": "UNKNOWN"
+}

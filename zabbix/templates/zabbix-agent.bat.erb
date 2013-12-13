@@ -1,0 +1,68 @@
+@echo off
+setlocal EnableDelayedExpansion
+
+set zabbix_dir=<%= @zabbix_dir %>
+set zabbix_conf="%zabbix_dir%\conf\zabbix_agentd.win.conf"
+set zabbix_agentd="%zabbix_dir%\bin\win<%= @arch_num %>\zabbix_agentd.exe"
+set service_name="Zabbix Agent"
+
+
+if %1.==. (
+    goto usage
+) else (
+    set opt=%1
+    goto zbx_opt
+)
+
+
+:zbx_opt
+for /f "tokens=2 delims=_" %%i in ('findstr "^:zbx_[^o][^p][^t]" %0') do (
+    if %%i==%opt% goto zbx_%opt%
+)
+goto usage
+
+
+:zbx_install
+%zabbix_agentd% -c %zabbix_conf% -i
+goto xit
+
+
+:zbx_uninstall
+%zabbix_agentd% -c %zabbix_conf% -x
+%zabbix_agentd% -c %zabbix_conf% -d
+goto xit
+
+
+:zbx_start
+%zabbix_agentd% -c %zabbix_conf% -s
+goto xit
+
+
+:zbx_stop
+%zabbix_agentd% -c %zabbix_conf% -x
+goto xit
+
+
+:zbx_restart
+%zabbix_agentd% -c %zabbix_conf% -x
+%zabbix_agentd% -c %zabbix_conf% -s
+goto xit
+
+
+:zbx_status
+FOR /F "tokens=4 " %%i IN ('sc query "Zabbix Agent" ^| FINDSTR "STATE"') DO SET status=%%i
+echo %service_name% %status%
+goto xit
+
+
+:usage
+set opt=help
+for /f "tokens=2 delims=_" %%i in ('findstr "^:zbx_[^o][^p][^t]" %0') do (
+    set opt=%%i^|!opt!
+)
+echo Usage: %0 {!opt!}
+goto xit
+
+
+:xit
+

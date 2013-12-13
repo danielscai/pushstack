@@ -1,0 +1,9 @@
+[global]
+fsid = <%= @fsid %>
+mon_initial_members = <%= @mon_initial_members.join(',') %>
+mon_host = <%= @mon_host.join(',') %>
+auth_supported = <%= @auth_supported %>
+osd_journal_size = <%= @osd_journal_size %>
+filestore_xattr_use_omap = <%= @filestore_xattr_use_omap %>
+<% if @public_network %>public_network = <%= @public_network %><% end %>
+<% if @cluster_network %>cluster_network = <%= @cluster_network %><% end %>

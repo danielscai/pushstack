@@ -1,0 +1,32 @@
+{
+  "description": "UNKNOWN",
+  "types": [
+
+  ],
+  "license": "Apache License, Version 2.0",
+  "dependencies": [
+
+  ],
+  "name": "pushstack-keystone",
+  "version": "0.1.0",
+  "summary": "UNKNOWN",
+  "author": "pushstack",
+  "checksums": {
+    "README": "74ebc403e4583bd9e0a7eac231f68674",
+    "templates/keystone/keystone_basic.sh.erb": "94b8c8323b3c35c5fc8d72ec01d275d9",
+    "templates/keystone/db_sync.sh.erb": "bcb73ce612440840baa700a7d9a01c1a",
+    "templates/keystone/keystone_endpoints_basic.sh.erb": "a9e18f65f476ec1157adf63a7477c5e9",
+    "Modulefile": "b3d64776df62006e26e86e17537d3664",
+    "manifests/params.pp": "7be27d5ddb1df76f908e903762d61129",
+    "manifests/utils.pp": "9d3b267a08da844c90e66beb9545f6a1",
+    "templates/keystone.conf.erb": "a95fcbbe80c601cdaa631ba35065cf7b",
+    "manifests/service.pp": "06068908bd1c9c94af96b43179c5a728",
+    "manifests/init.pp": "2eacc6cfc987bb71dc27f8dcc4fee665",
+    "example/site.pp": "d2f59a169f7caf0309a33b9d6e742eaf",
+    "templates/keystone/mysql_init.sh.erb": "d1ae0d43679e32c7959956343cf7cdf9",
+    "tests/init.pp": "258bd07dc1d4f1c5632a69d47bd36017",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372"
+  },
+  "source": "UNKNOWN",
+  "project_page": "UNKNOWN"
+}

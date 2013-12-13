@@ -1,0 +1,115 @@
+global
+  daemon
+  group  haproxy
+  log  127.0.0.1 local0
+  maxconn  4000
+  pidfile  /var/run/haproxy.pid
+  user  haproxy
+
+defaults
+  log  global
+  maxconn  8000
+  option  redispatch
+  retries  3
+  timeout  http-request 10s
+  timeout  queue 1m
+  timeout  connect 10s
+  timeout  client 1m
+  timeout  server 1m
+  timeout  check 10s
+
+listen horizon
+  bind <%= scope.lookupvar("openstack::params::vip") %>:80
+  balance  source
+  capture  cookie vgnvisitor= len 32
+  cookie  SERVERID insert indirect nocache
+  mode  http
+  option  forwardfor
+  option  httpchk
+  option  httpclose
+  option  httplog
+  rspidel  ^Set-cookie:\ IP=
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:80 cookie <%= ha_host %>  check inter 2000 fall 3 
+  <% end %>
+
+listen admin_stat
+  bind <%= scope.lookupvar("openstack::params::vip") %>:8888
+  mode http
+  stats uri    /
+  stats refresh 30s
+  stats realm Haproxy\ Statistics
+  stats auth admin:admin
+  stats hide-version
+  stats admin if TRUE
+
+listen rabbitmq-openstack
+  bind <%= scope.lookupvar("openstack::params::vip") %>:5672
+  balance  roundrobin
+  mode  tcp
+  option  tcpka
+  timeout client  48h
+  timeout server  48h
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:5672 check inter 5000 rise 2 fall 3
+  <% end %>
+
+listen keystone-service
+  bind <%= scope.lookupvar("openstack::params::vip") %>:5000
+  balance  roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:5000 check
+  <% end %>
+
+listen keystone-auth
+  bind <%= scope.lookupvar("openstack::params::vip") %>:35357
+  balance  roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:35357 check
+  <% end %>
+
+listen glance-api
+  bind <%= scope.lookupvar("openstack::params::vip") %>:9292
+  balance roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:9292 check
+  <% end %>
+
+listen glance-registry
+  bind <%= scope.lookupvar("openstack::params::vip") %>:9191
+  balance roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:9191 check
+  <% end %>
+
+listen quantum-server
+  bind <%= scope.lookupvar("openstack::params::vip") %>:9696
+  balance roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:9696 check
+  <% end %>
+
+listen nova-ec2-api
+  bind <%= scope.lookupvar("openstack::params::vip") %>:8773
+  balance  roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:8773 check
+  <% end %>
+
+listen nova-api
+  bind <%= scope.lookupvar("openstack::params::vip") %>:8774
+  balance  roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:8774 check
+  <% end %>
+
+listen nova-metadata-api
+  bind <%= scope.lookupvar("openstack::params::vip") %>:8775
+  balance  roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:8775 check
+  <% end %>
+
+listen cinder
+  bind <%= scope.lookupvar("openstack::params::vip") %>:8776
+  balance  roundrobin
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:8776 check
+  <% end %>
+
+listen novnc_cluster
+  bind <%= scope.lookupvar("openstack::params::vip") %>:6080
+  balance  source
+  option  tcpka
+  option  tcplog
+  <% ha_hosts.each do |ha_host| %> server <%= ha_host %> <%= ha_host %>:6080 check inter 2000 rise 2 fall 5
+  <% end %>

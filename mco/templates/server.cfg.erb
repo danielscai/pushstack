@@ -1,0 +1,102 @@
+# Connector settings (required):
+# -----------------------------
+
+direct_addressing = 1
+connector = rabbitmq
+
+# RabbitMQ connector settings:
+plugin.rabbitmq.vhost = /mcollective
+plugin.rabbitmq.pool.size = 2
+
+plugin.rabbitmq.pool.1.host = <%= mco_host %>
+plugin.rabbitmq.pool.1.port = <%= mco_port %>
+plugin.rabbitmq.pool.1.user = <%= mco_user %>
+plugin.rabbitmq.pool.1.password = <%= mco_pass %>
+
+plugin.rabbitmq.pool.2.host = kickstart
+plugin.rabbitmq.pool.2.port = 61613
+plugin.rabbitmq.pool.2.user = <%= mco_user %>
+plugin.rabbitmq.pool.2.password = <%= mco_pass %>
+
+# Plugins
+securityprovider = psk
+plugin.psk = <%= mco_psk %>
+
+# Facts
+factsource = yaml
+plugin.yaml = /etc/mcollective/facts.yaml
+fact_cache_time = 300
+
+# Subcollectives (optional):
+# -------------------------
+
+#collectives = mcollective,uk_collective
+collectives = mcollective
+main_collective = mcollective
+
+
+## Security plugin settings (required):
+## -----------------------------------
+#securityprovider = ssl
+#
+## SSL plugin settings:
+#plugin.ssl_client_cert_dir = /etc/mcollective.d/clients
+#plugin.ssl_server_private = /etc/mcollective.d/server_private.pem
+#plugin.ssl_server_public = /etc/mcollective.d/server_public.pem
+#
+#identity = web01.example.com
+#
+#classesfile = /var/lib/puppet/classes.txt
+#
+## Registration (optional):
+## -----------------------
+#
+#registerinterval = 300
+#registration = agentlist
+#registration_collective = mcollective
+#
+## Auditing (optional):
+## -------------------
+#
+#rpcaudit = 1
+#rpcauditprovider = logfile
+#plugin.rpcaudit.logfile = /var/log/mcollective-audit.log
+#
+## Authorization (optional):
+## ------------------------
+#
+#rpcauthorization = 1
+#rpcauthprovider = action_policy
+
+# Logging:
+# -------
+
+logger_type = file
+loglevel = info
+keeplogs = 5
+max_log_size = 2097152
+logfacility = user
+logfile = /var/log/mcollective.log
+
+# Platform defaults:
+# -----------------
+
+daemonize = 1
+libdir = <%= mco_libdir %>
+#ssl_cipher = aes-256-cbc
+
+
+# 
+plugin.puppet.command = puppet agent
+plugin.puppet.splay = true
+plugin.puppet.splaylimit = 30
+plugin.puppet.config = /etc/puppet/puppet.conf
+
+plugin.puppet.resource_allow_managed_resources = true
+
+plugin.puppet.resource_type_whitelist = none
+#plugin.puppet.resource_type_whitelist = host,alias
+plugin.puppet.resource_type_blacklist = exec,service,package
+
+
+

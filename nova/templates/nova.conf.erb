@@ -1,0 +1,82 @@
+[DEFAULT]
+logdir=/var/log/nova
+state_path=/var/lib/nova
+lock_path=/run/lock/nova
+verbose=True
+api_paste_config=/etc/nova/api-paste.ini
+compute_scheduler_driver=nova.scheduler.simple.SimpleScheduler
+rabbit_host= <%= scope.lookupvar('openstack::params::rabbitmq_vip') %>
+rabbit_user= <%= scope.lookupvar('openstack::params::rabbitmq_user') %>
+rabbit_password= <%= scope.lookupvar('openstack::params::rabbitmq_password') %>
+rabbit_port= <%= scope.lookupvar('openstack::params::rabbitmq_port') %>
+nova_url=http://<%= scope.lookupvar('openstack::params::vip') %>:8774/v1.1/
+sql_connection = mysql://<%= scope.lookupvar('openstack::params::mysql_nova_user') %>:<%= scope.lookupvar('openstack::params::mysql_nova_password') %>@<%= scope.lookupvar('openstack::params::mysql_server_host')%>:<%=scope.lookupvar('openstack::params::mysql_server_port')%>/<%= scope.lookupvar('openstack::params::mysql_nova_db') %>
+root_helper=sudo nova-rootwrap /etc/nova/rootwrap.conf
+allow_resize_to_same_host=True
+
+# API 
+enabled_apis=ec2,osapi_compute,metadata
+ec2_listen = <%= scope.lookupvar('openstack::params::ec2_api_ip') %>
+osapi_compute_listen= <%= scope.lookupvar('openstack::params::nova_api_ip') %>
+metadata_listen= <%= scope.lookupvar('openstack::params::metadata_api_ip') %>
+
+# Live migration
+live_migration_bandwidth=0
+live_migration_flag=VIR_MIGRATE_UNDEFINE_SOURCE,VIR_MIGRATE_PEER2PEER,VIR_MIGRATE_LIVE
+#live_migration_retry_count=30
+#live_migration_uri=qemu+tcp://%s/system
+
+# Auth
+use_deprecated_auth=false
+auth_strategy=keystone
+
+# Imaging service
+glance_api_servers=<%= scope.lookupvar('openstack::params::glance_vip_ip') %>:9292
+image_service=nova.image.glance.GlanceImageService
+#allowed_direct_url_schemes=[file]
+
+# Vnc configuration
+novnc_enabled=true
+novncproxy_base_url=http://<%= scope.lookupvar('openstack::params::novncproxy_base_ip') %>:6080/vnc_auto.html
+novncproxy_host=<%= scope.lookupvar('openstack::params::nova_api_ip') %>
+novncproxy_port=6080
+vncserver_proxyclient_address= <%= scope.lookupvar('openstack::params::vncserver_proxyclient_ip') %>
+vncserver_listen= 0.0.0.0
+
+# Network settings
+network_api_class=nova.network.quantumv2.api.API
+quantum_url=http://<%=  scope.lookupvar('openstack::params::quantum_vip_ip') %>:9696
+quantum_auth_strategy=keystone
+quantum_admin_tenant_name=<%= scope.lookupvar('openstack::params::quantum_tenant') %>
+quantum_admin_username=<%= scope.lookupvar('openstack::params::quantum_user') %>
+quantum_admin_password=<%= scope.lookupvar('openstack::params::quantum_password') %>
+quantum_admin_auth_url=http://<%= scope.lookupvar('openstack::params::keystone_vip_ip') %>:35357/v2.0
+libvirt_vif_driver=<%= @libvirt_vif_driver %>
+linuxnet_interface_driver=<%= @linuxnet_interface_driver %>
+#firewall_driver=nova.virt.libvirt.firewall.IptablesFirewallDriver
+# use quantum security group
+security_group_api=<%= scope.lookupvar('openstack::params::security_group_api') %>
+firewall_driver=nova.virt.firewall.NoopFirewallDriver
+
+<% if @enable_metadata_proxy %>
+#Metadata
+service_quantum_metadata_proxy = True
+#quantum_metadata_proxy_shared_secret = helloOpenStack
+#metadata_host = <%= scope.lookupvar('openstack::params::metadata_api_ip') %>
+#metadata_listen = <%= scope.lookupvar('openstack::params::metadata_api_ip') %>
+#metadata_listen_port = 8775
+<% end %>
+
+<% if @enable_config_drive %>
+# enable config drive
+force_config_drive=true
+config_drive_format=iso9660
+mkisofs_cmd=genisoimage
+<% end %>
+
+# Compute #
+compute_driver=libvirt.LibvirtDriver
+
+# Cinder #
+volume_api_class=nova.volume.cinder.API
+osapi_volume_listen_port=5900

@@ -1,0 +1,29 @@
+{
+  "summary": "UNKNOWN",
+  "name": "pushstack-glance",
+  "license": "Apache License, Version 2.0",
+  "dependencies": [
+
+  ],
+  "author": "pushstack",
+  "project_page": "UNKNOWN",
+  "source": "UNKNOWN",
+  "description": "UNKNOWN",
+  "version": "0.1.0",
+  "types": [
+
+  ],
+  "checksums": {
+    "Modulefile": "0f95600db01354e15f43eaca8cc880cc",
+    "templates/glance-api-paste.ini.erb": "7bec5b1a1656cec38e033bfa6cc335b3",
+    "manifests/init.pp": "dcc17d72e7522cb2562cde838c04519b",
+    "README": "8eea8d7fad8f21c259e419e6af81090a",
+    "manifests/service.pp": "1f5e5b2da606df340858542c5679d837",
+    "tests/init.pp": "da3680394752ec2b1cfa8fac1c643a59",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "templates/glance-registry.conf.erb": "ad9e6b7d99e2ee3e1921ac3f1b7ce74f",
+    "manifests/params.pp": "d550e0735ac86d4d95f08cf1f6f11e79",
+    "templates/glance-registry-paste.ini.erb": "1b2cc8dd2a3c8a8ec648b383a2738ee4",
+    "templates/glance-api.conf.erb": "0cc4d444b17e5702398a7d62dce1eabe"
+  }
+}

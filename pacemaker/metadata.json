@@ -1,0 +1,44 @@
+{
+  "name": "pushstack-pacemaker",
+  "source": "https://github.com/pushstack/puppet-pacemaker",
+  "summary": "Puppet module to provide configuration managent of pacemaker and associated resources",
+  "version": "0.1.0",
+  "author": "pushstack",
+  "types": [
+
+  ],
+  "description": "Puppet module to provide configuration managent of pacemaker and associated resources",
+  "checksums": {
+    "manifests/stonith/ipmilan.pp": "7116d53d080b9613d9bf1d609edd3b7b",
+    "Modulefile": "a10c1da47258f6d4549de91fd9d1225c",
+    "manifests/corosync.pp": "2ded84f56cb89179b9d09d36e3e96585",
+    "manifests/resource/base.pp": "d21bf47fb682a04a9dbf91a3b52a78e0",
+    "manifests/stonith.pp": "d55ef4bbc3b7ed17c35bdfc078bc65e0",
+    "LICENSE": "0e5ccf641e613489e66aa98271dbe798",
+    "templates/haproxy.erb": "47d7e8688abce73759b30c8b89bd7818",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "manifests/stonith/fence_xvm.pp": "34d0997371fd3fe40908b29770cf730c",
+    "README.md": "7d391a0b45cdd1c472cc1896581c9dc3",
+    "templates/corosync.conf.erb": "4fb2eb67cc90f2fe0c886fac29d66a08",
+    "manifests/init.pp": "1a08762a5185adfbd97eeb2d7dcb2bfc",
+    "manifests/params.pp": "c661e672f245f2bf3e7dc74d5c75781e",
+    "manifests/resource/ip.pp": "edff5c331688941cd371e941f903bfd3",
+    "manifests/resource/lsb.pp": "75dafb5a64e54c8401c70ea0205809c8",
+    "manifests/resource/group.pp": "b20382cb5f2cb42d21a3f733f6c98408",
+    "manifests/resource/mysql.pp": "7fcf900bf0a879bd9e4b6301229472c7",
+    "manifests/resource/filesystem.pp": "df42b725e15a6bfcc7813c66f690aed8",
+    "tests/init.pp": "f0d1f6dde21b37b9b393cc265fdd0c3a",
+    "manifests/resource/qpid.pp": "d4c67e87509b9f732ad1f0f0232eefb2",
+    "templates/default_corosync.erb": "8f1cd5a96bfd7b264ce4d3b9f167a2f4"
+  },
+  "license": "Apache License, Version 2.0",
+  "project_page": "https://github.com/pushstack/puppet-pacemaker",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib"
+    },
+    {
+      "name": "puppetlabs/firewall"
+    }
+  ]
+}

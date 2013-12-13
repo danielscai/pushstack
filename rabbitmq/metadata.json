@@ -1,0 +1,29 @@
+{
+  "license": "Apache License, Version 2.0",
+  "project_page": "UNKNOWN",
+  "version": "0.1.0",
+  "source": "UNKNOWN",
+  "dependencies": [
+
+  ],
+  "name": "pushstack-rabbitmq",
+  "description": "UNKNOWN",
+  "types": [
+
+  ],
+  "author": "pushstack",
+  "summary": "UNKNOWN",
+  "checksums": {
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "tests/init.pp": "cc029c2f5ef015e5305e987b822f2e98",
+    "manifests/service.pp": "a13e86b951dfca03f1232b4a961ab2e9",
+    "README": "80523c5f8ee554152342a5c8a9b61a2e",
+    "manifests/init.pp": "8211836bdbbd59a56fc073d1b87dc86d",
+    "templates/rabbitmq-env.conf.erb": "824d367e890554c8808879be0c9b941c",
+    "templates/bind.conf.erb": "27f9ba639707358aeef469622430cce2",
+    "manifests/repo.pp": "6da837aac841f1fe7f04db5eeef3a4e1",
+    "templates/rabbit.asc.erb": "ca05952b7309686b86fc8a80de8764dc",
+    "Modulefile": "2f2612cbf901c6de0f157ea0453981f7",
+    "manifests/params.pp": "00163d68698f53c2ec818a2686745e8e"
+  }
+}

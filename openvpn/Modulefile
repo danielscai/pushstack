@@ -1,0 +1,11 @@
+name    'pushstack-openvpn'
+version '1.0.0'
+source ''
+author 'pushstack'
+license 'Apache 2.0'
+summary 'OpenVPN server puppet module'
+description 'Puppet module to manage OpenVPN servers'
+project_page ''
+
+## Add dependencies, if any:
+dependency 'ripienaar/concat'

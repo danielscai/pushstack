@@ -1,0 +1,22 @@
+nova
+
+This is the nova module.
+
+* enable_metadata_proxy 
+    if not set , metadata proxy will not be used 
+
+* enable_config_drive 
+    if not set , config_drive not not be used
+
+License
+-------
+
+
+Contact
+-------
+
+
+Support
+-------
+
+Please log tickets and issues at our [Projects site](http://projects.example.com)

@@ -1,0 +1,63 @@
+mysql -u root -p <<EOF
+drop database if exists <%= scope.lookupvar('openstack::params::mysql_keystone_db') %>;
+drop database if exists <%= scope.lookupvar('openstack::params::mysql_nova_db') %>;
+drop database if exists <%= scope.lookupvar('openstack::params::mysql_quantum_db') %>;
+drop database if exists <%= scope.lookupvar('openstack::params::mysql_glance_db') %>;
+drop database if exists <%= scope.lookupvar('openstack::params::mysql_cinder_db') %>;
+
+CREATE DATABASE keystone;
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_keystone_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_keystone_db') %>'@'%' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_keystone_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_keystone_db') %>'@'localhost' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_keystone_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_keystone_db') %>'@'127.0.0.1' \
+IDENTIFIED BY 'password';
+
+CREATE DATABASE nova;
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_nova_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_nova_db') %>'@'%' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_nova_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_nova_db') %>'@'localhost' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_nova_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_nova_db') %>'@'127.0.0.1' \
+IDENTIFIED BY 'password';
+
+CREATE DATABASE quantum;
+GRANT ALL PRIVILEGES ON quantum.* TO '<%= scope.lookupvar('openstack::params::mysql_quantum_db') %>'@'%' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON quantum.* TO '<%= scope.lookupvar('openstack::params::mysql_quantum_db') %>'@'localhost' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON quantum.* TO '<%= scope.lookupvar('openstack::params::mysql_quantum_db') %>'@'127.0.0.1' \
+IDENTIFIED BY 'password';
+
+CREATE DATABASE glance;
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_glance_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_glance_db') %>'@'%' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_glance_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_glance_db') %>'@'localhost' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_glance_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_glance_db') %>'@'127.0.0.1' \
+IDENTIFIED BY 'password';
+
+CREATE DATABASE cinder;
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_cinder_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_cinder_db') %>'@'%' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_cinder_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_cinder_db') %>'@'localhost' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON <%= scope.lookupvar('openstack::params::mysql_cinder_user') %>.* TO '<%= scope.lookupvar('openstack::params::mysql_cinder_db') %>'@'127.0.0.1' \
+IDENTIFIED BY 'password';
+
+CREATE DATABASE cmdb;
+GRANT ALL PRIVILEGES ON cmdb.* TO 'cmdb'@'%' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON cmdb.* TO 'cmdb'@'localhost' \
+IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON cmdb.* TO 'cmdb'@'127.0.0.1' \
+IDENTIFIED BY 'password';
+
+FLUSH PRIVILEGES;
+delete from mysql.user where user='';
+EOF
+
+
+sed -i 's/127.0.0.1/0.0.0.0/g' /etc/mysql/my.cnf
+service mysql restart
+
