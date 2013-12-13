@@ -15,7 +15,7 @@ class ceph::client (
 
     file { '/etc/apt/sources.list.d/ceph.list': 
         ensure => present,
-        content => "deb http://ceph.com/debian-dumpling/ precise main",
+        content => "deb http://ceph.com/debian-dumpling/ precise main\n",
     }
      
     #exec { "apt-update":

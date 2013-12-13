@@ -2,6 +2,7 @@ class openstack::compute (
     $enable_ceph = $openstack::params::enable_ceph,
     $enable_ceph_fs = $openstack::params::enable_ceph_fs,
     $network_bridge = $openstack::params::network_bridge,
+    $libvirt_cpu_mode = false,
     ) inherits openstack::params {
 
     if $enable_ceph {
@@ -18,6 +19,7 @@ class openstack::compute (
 
     class {'nova::compute': 
         network_bridge => $network_bridge,
+        libvirt_cpu_mode => $libvirt_cpu_mode,
     }
 
     if $network_bridge == "linuxbridge" {

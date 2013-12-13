@@ -4,6 +4,7 @@ class nova::compute (
     $libvirt_vif_driver_linuxbridge = $nova::params::libvirt_vif_driver_linuxbridge,
     $linuxnet_interface_driver_linuxbridge = $nova::params::linuxnet_interface_driver_linuxbridge,
     $libvirt_vif_driver_ovs = $nova::params::libvirt_vif_driver_ovs,
+    $libvirt_cpu_mode = $nova::params::libvirt_cpu_mode,
     ) inherits nova::params {
 
     include nova::common
