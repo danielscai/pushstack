@@ -1,4 +1,5 @@
 class cinder::cinder_install (
+    $enabled_backends = false,
     ) inherits cinder::params {
 
     include openstack::params

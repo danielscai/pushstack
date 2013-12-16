@@ -5,7 +5,7 @@ class openstack::controller (
     $enable_rabbitmq = $openstack::params::enable_rabbitmq,
     $enable_haproxy = $openstack::params::enable_haproxy,
     $enable_pacemaker = $openstack::params::enable_pacemaker,
-    $enable_cinder_enabled_backends = $openstack::params::enable_cinder_enabled_backends,
+    $enabled_backends = $openstack::params::enabled_backends,
     $network_type = $openstack::params::network_type,
     $network_bridge = $openstack::params::network_bridge,
     $mysql_bind_ip = $openstack::params::mysql_bind_ip,
@@ -56,7 +56,10 @@ class openstack::controller (
     class {'nova': }
     class {'neutron::server': }
     class {'glance': }
-    class {'cinder': } 
+    class {'cinder': 
+        enabled_backends => $enabled_backends
+    } 
+
     class {'horizon::service': 
         openstack_host => $openstack::controller::openstack_host,
         apache_bind_ip => $openstack::controller::apache_bind_ip,
@@ -87,10 +90,6 @@ class openstack::controller (
         }
     }
     
-    if $enable_cinder_enabled_backends {
-        $cinder_multi_storage = $openstack::params::cinder_enabled_backends
-    }
-
     if $enable_pacemaker{
 
 

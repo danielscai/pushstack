@@ -36,9 +36,12 @@
 # Copyright 2013 Your name here, unless otherwise noted.
 #
 class cinder (
+    $enabled_backends = false,
     ) inherits cinder::params {
-  notify { "$title - $enabled_backends": }
-    class {'cinder::cinder_install': }
+
+    class {'cinder::cinder_install': 
+        enabled_backends => $enabled_backends
+    }
     class {'cinder::utils': }
 
 }
