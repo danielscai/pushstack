@@ -13,22 +13,10 @@ class ceph::client (
 
     $ceph_pkg = ['python-ceph','ceph-common']
 
-    file { '/etc/apt/sources.list.d/ceph.list': 
-        ensure => present,
-        content => "deb http://ceph.com/debian-dumpling/ precise main\n",
-    }
-     
-    #exec { "apt-update":
-    #    command => "/usr/bin/apt-get update",
-    #}
-   
     package {
         $ceph_pkg:
         ensure => $ceph_client_set,
     }
 
-    #File['/etc/apt/sources.list.d/ceph.list'] -> 
-    #Exec['apt-update'] ->
-    #Package[$ceph_pkg]
     Class['ceph::repo'] -> Class['ceph::client']
 }

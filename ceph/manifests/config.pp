@@ -6,9 +6,9 @@ class ceph::config (
         ensure => directory;
     }
 
-    #file {'ceph.conf':
-    #    path => "/etc/ceph/ceph.conf",
-    #    ensure => present,
-    #    content => template("ceph/ceph.conf.erb");
-    #}
+    file {'ceph.conf':
+        path => "/etc/ceph/ceph.conf",
+        ensure => present,
+        content => template("ceph/ceph.conf.erb");
+    }
 }
