@@ -9,7 +9,13 @@ class puppet::master (
     ensure => $version,
   }
 
-  file { "/etc/puppet/autosign.conf":
+  file {
+    "/etc/puppet/puppet.conf":
+    content => template("$module_name/puppet.conf.erb"),
+    require => Package[$master_pkgs];
+
+ 
+    "/etc/puppet/autosign.conf":
     content => template("$module_name/autosign.erb"),
     require => Package[$master_pkgs],
   }
@@ -25,7 +31,7 @@ class puppet::master (
   service { 'puppetmaster':
     ensure => $master_service_ensure,
     enable => $master_service_enable,
-    require => Package[$master_pkgs],
+    require => File["/etc/puppet/puppet.conf"],
   }
 
 }

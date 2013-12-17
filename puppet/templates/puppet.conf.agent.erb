@@ -3,25 +3,15 @@ logdir                   = /var/log/puppet
 vardir                   = /var/lib/puppet
 ssldir                   = /var/lib/puppet/ssl
 rundir                   = /var/run/puppet
-templatedir              = $confdir/templates
-bindaddress              = 0.0.0.0
 factpath                 = $vardir/lib/facter
-pluginsync               = true
-environment              = <%= environment %>
-#ca_server               = <%= @ca_server%>
+templatedir              = $confdir/templates
 server                   = <%= if ( @server and !@server.empty? ) then @server elsif ( @servername and !@servername.empty? ) then @servername else @fqdn end %>
-
-[production]
-manifest                 = $confdir/manifests/site.pp
-modulepath               = $confdir/modules
-manifestdir              = $confdir/manifests
+#ca_server                = <%= @ca_server%>
+environment              = <%= environment %>
 
 [master]
 # These are needed when the puppetmaster is run by passenger
 # and can safely be removed if webrick is used.
-manifest                 = $confdir/env/$environment/manifests/site.pp
-modulepath               = $confdir/env/$environment/modules:$confdir/modules
-
 ssl_client_header        = SSL_CLIENT_S_DN
 ssl_client_verify_header = SSL_CLIENT_VERIFY
 
@@ -29,7 +19,5 @@ ssl_client_verify_header = SSL_CLIENT_VERIFY
 classfile                = $vardir/classes.txt
 localconfig              = $vardir/localconfig
 
-listen                   = true
 puppetport               = <%= @puppetport%>
 runinterval              = <%= @runinterval%>
-show_diff                = true
