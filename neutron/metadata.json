@@ -1,48 +1,52 @@
 {
-  "license": "Apache License, Version 2.0",
-  "author": "pushstack",
-  "name": "pushstack-neutron",
-  "checksums": {
-    "templates/dhcp_agent.ini.erb": "1a7619155541fe6528f52688a4e19026",
-    "templates/utils/reset_firewall_rules.sh.erb": "df176e9cedeb90c5e70bbb9d90e71f54",
-    "templates/ovs_quantum_plugin.ini.vlan.erb": "a4d9e180e5d784af7f236ab4d62171cb",
-    "manifests/utils.pp": "16a285124bf022d53fff4932e9407fe9",
-    "templates/quantum-api-paste.ini.erb": "4d1f2ea2f80bd73f14f5a0aabe8fdd91",
-    "templates/lbaas_agent.ini.erb": "7995bf85eb118ac555c6d256469c2694",
-    "Modulefile": "caccf78b34e327d349628049803642db",
-    "manifests/server.pp": "915004fe7df9d1c813a852a7162a80da",
-    "manifests/agent/metadata.pp": "8de6f28acf6f11675b2b3918c4b462bc",
-    "manifests/params.pp": "ff322aa5d149e1f8763af1c6a87d13d8",
-    "manifests/agent/agents.pp": "ce1ff0350dd49a96605e574c55b8d589",
-    "templates/metadata_agent.ini.erb": "5ff82f7562d221eee5e460f81fef572a",
-    "manifests/agent/ovs.pp": "feffd8e07937d9722787c53d370b82a8",
-    "manifests/common.pp": "376f0e4c448036b0b61816bb232b4936",
-    "templates/ovs_quantum_plugin.ini.gre.erb": "3b734d839a8711207c9f381bb9fd47ee",
-    "manifests/init.pp": "6e24a2deadc8b7f16e0f60c6bde322a6",
-    "templates/l3_agent.ini.erb": "3d7bd59c929c7230cf1d1025a905f2bf",
-    "templates/linuxbridge_conf.ini.erb": "c05cb2c2cf9a61b6f3636d6968c17b55",
-    "manifests/agent/dhcp.pp": "d68d523df7473a7ac9fc8aaf2b79991b",
-    "manifests/agent/lbaas.pp": "98edab775259e0aea944d7c08668ed23",
-    "manifests/agent/linuxbridge.pp": "8b3622a4b63c6355af8fe316f5287b8d",
-    "tests/init.pp": "c7b5f22c27da9fdc7125c448451bed8c",
-    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
-    "templates/default-quantum-server.erb": "da5a798ab25edc3cc964c48b0d325ede",
-    "templates/quantum.conf.erb": "4b722f86d686a200c0e94f3e5debedbe",
-    "manifests/agent/l3.pp": "f34f1f4174a413dddd38322910278ae3",
-    "README": "03cede2b5319869b85a58a498c37bbb1"
-  },
-  "summary": "UNKNOWN",
   "version": "0.1.0",
+  "checksums": {
+    "manifests/utils.pp": "16a285124bf022d53fff4932e9407fe9",
+    "manifests/common.pp": "376f0e4c448036b0b61816bb232b4936",
+    "templates/quantum-api-paste.ini.erb": "4d1f2ea2f80bd73f14f5a0aabe8fdd91",
+    "templates/linuxbridge_conf.ini.erb": "c05cb2c2cf9a61b6f3636d6968c17b55",
+    "templates/lbaas_agent.ini.erb": "7995bf85eb118ac555c6d256469c2694",
+    "templates/ovs_quantum_plugin.ini.gre.erb": "4cd5ce88cf13ed35aff10eda82b4d2ba",
+    "manifests/agent/l3.pp": "866d030ba663b6a35f1ca52ca516e720",
+    "README": "03cede2b5319869b85a58a498c37bbb1",
+    "Modulefile": "1edf6d7c68066fc210ebfadff9fb7755",
+    "templates/quantum.conf.erb": "4b722f86d686a200c0e94f3e5debedbe",
+    "templates/l3_agent.ini.erb": "3d7bd59c929c7230cf1d1025a905f2bf",
+    "manifests/agent/linuxbridge.pp": "c12c64df94a4179c9248b99354348e7e",
+    "templates/default-quantum-server.erb": "da5a798ab25edc3cc964c48b0d325ede",
+    "manifests/agent/ovs.pp": "3a12d19191f60546aeb7451db6ef0812",
+    "templates/dhcp_agent.ini.erb": "1a7619155541fe6528f52688a4e19026",
+    "manifests/params.pp": "3ee5d9fa9a563746100e79ee0a47a6f6",
+    "tests/init.pp": "c7b5f22c27da9fdc7125c448451bed8c",
+    "manifests/agent/metadata.pp": "55db904b5e85d754b673e316467e51a2",
+    "manifests/agent/dhcp.pp": "cca76192593d5027b136f820b9757ecb",
+    "manifests/init.pp": "6e24a2deadc8b7f16e0f60c6bde322a6",
+    "manifests/agent/agents.pp": "ce1ff0350dd49a96605e574c55b8d589",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "manifests/agent/lbaas.pp": "6d7d6eae96f516aed08876331b82fbeb",
+    "templates/utils/reset_firewall_rules.sh.erb": "df176e9cedeb90c5e70bbb9d90e71f54",
+    "templates/ovs_quantum_plugin.ini.vlan.erb": "c2037b3c15a6de8d24c1ac657582c9d7",
+    "manifests/server.pp": "41703bdccd0ab4689cf6719a98fda47d",
+    "templates/metadata_agent.ini.erb": "5ff82f7562d221eee5e460f81fef572a"
+  },
   "description": "UNKNOWN",
-  "project_page": "UNKNOWN",
   "types": [
 
   ],
+  "author": "pushstack",
+  "source": "UNKNOWN",
+  "license": "Apache License, Version 2.0",
+  "name": "pushstack-neutron",
+  "summary": "UNKNOWN",
+  "project_page": "UNKNOWN",
   "dependencies": [
     {
       "version_requirement": ">= 1.2.0",
       "name": "example42/haproxy"
+    },
+    {
+      "version_requirement": ">=0.1.0",
+      "name": "pushstack/osinit"
     }
-  ],
-  "source": "UNKNOWN"
+  ]
 }
