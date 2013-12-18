@@ -1,28 +1,28 @@
 {
-  "version": "0.1.0",
-  "project_page": "UNKNOWN",
-  "summary": "UNKNOWN",
-  "license": "Apache License, Version 2.0",
-  "name": "pushstack-osinit",
-  "source": "UNKNOWN",
-  "author": "pushstack",
   "types": [
 
   ],
   "dependencies": [
 
   ],
+  "version": "0.1.0",
+  "source": "UNKNOWN",
+  "description": "UNKNOWN",
+  "project_page": "UNKNOWN",
+  "license": "Apache License, Version 2.0",
+  "name": "pushstack-osinit",
   "checksums": {
-    "README": "a2db08e86f952fadb04ae5e27ee76490",
-    "Modulefile": "a31fafc05f48bea296c57df00be05b79",
     "templates/creds.erb": "049622cefdd2c3fd2e8735a7144d6c00",
-    "manifests/init.pp": "2cfdbb16ec94d07eb42ce60f66da3634",
+    "templates/bash_aliases.erb": "6fdb6f851c680fd1bb95f79b493e2d6f",
+    "README": "a2db08e86f952fadb04ae5e27ee76490",
+    "manifests/utils.pp": "6039d4495deb9aac26d0a2e68923268a",
+    "manifests/env.pp": "5e259b58b587491d157e8d3d7f33c53c",
     "tests/init.pp": "19a35fcc58034adabdf22690df447d4b",
     "templates/README.md": "e1c06d85ae7b8b032bef47e42e4c08f9",
-    "manifests/env.pp": "5e259b58b587491d157e8d3d7f33c53c",
+    "manifests/init.pp": "2cfdbb16ec94d07eb42ce60f66da3634",
     "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
-    "templates/bash_aliases.erb": "6fdb6f851c680fd1bb95f79b493e2d6f",
-    "manifests/utils.pp": "6039d4495deb9aac26d0a2e68923268a"
+    "Modulefile": "a31fafc05f48bea296c57df00be05b79"
   },
-  "description": "UNKNOWN"
+  "author": "pushstack",
+  "summary": "UNKNOWN"
 }

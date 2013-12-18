@@ -1,41 +1,41 @@
 {
+  "types": [
+
+  ],
+  "version": "0.1.0",
   "dependencies": [
     {
       "version_requirement": ">=0.1.0",
       "name": "pushstack/osinit"
     }
   ],
-  "description": "UNKNOWN",
-  "name": "pushstack-cinder",
-  "source": "UNKNOWN",
-  "summary": "UNKNOWN",
-  "types": [
-
-  ],
   "project_page": "UNKNOWN",
-  "checksums": {
-    "manifests/cinder_api.pp": "0edfd53e75d2d467d7fde2e33727b820",
-    "manifests/cinder_volume.pp": "33042cec308288020c5f7c4ceb80a74f",
-    "README": "750f2dd6b9a230de11098c2b268a500f",
-    "templates/utils/create_volume_type.sh.erb": "522f12d128820819bd165a6c8d23a4e7",
-    "manifests/ceph.pp": "cab9808d29d3c648f2667df3cf669df0",
-    "templates/init/ceph_pool_make.sh.erb": "5cb61aae472cdc2da6375eef910dcbb7",
-    "manifests/utils.pp": "a66ce028f749c39e755d2cae00cb4b21",
-    "templates/cinder.conf.erb": "08ee00c66e7189b68f4badf2651e5aad",
-    "manifests/params.pp": "8536eaf792d9c280831383f7b88ed0f9",
-    "examples/site.pp": "ecdc1bb41b988f0f2e125f6e277dcbe4",
-    "templates/utils/ceph_pool_make.sh.erb": "30c3f5022096f032e103deaf5c454c83",
-    "manifests/python_cinderclient.pp": "fba92096f0ea1d1539b4ddf7a21fb053",
-    "manifests/cinder_install.pp": "cfd9ec919a4749acf0424a38005e573c",
-    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
-    "Modulefile": "b6be1fbf05999fd6121974f0c29e77db",
-    "manifests/init.pp": "e22636d99f3bd8d3d1a6d23ae82e5b36",
-    "manifests/cinder_scheduler.pp": "6ec0904c9940e2951e3fd5cac4aa9fc5",
-    "tests/init.pp": "5e4b89e95df8be5a82b61a38186dce1a",
-    "templates/cinder-api-paste.ini.erb": "459ab3c6ed8ba2741093610034c78aa2",
-    "templates/ceph.conf.erb": "2d19fc6503af75800efc4ffe807f83c9"
-  },
+  "name": "pushstack-cinder",
+  "summary": "UNKNOWN",
+  "description": "UNKNOWN",
   "author": "pushstack",
   "license": "Apache License, Version 2.0",
-  "version": "0.1.0"
+  "checksums": {
+    "manifests/ceph.pp": "cab9808d29d3c648f2667df3cf669df0",
+    "examples/site.pp": "ecdc1bb41b988f0f2e125f6e277dcbe4",
+    "templates/cinder-api-paste.ini.erb": "459ab3c6ed8ba2741093610034c78aa2",
+    "manifests/cinder_api.pp": "0edfd53e75d2d467d7fde2e33727b820",
+    "manifests/params.pp": "8536eaf792d9c280831383f7b88ed0f9",
+    "manifests/python_cinderclient.pp": "fba92096f0ea1d1539b4ddf7a21fb053",
+    "README": "750f2dd6b9a230de11098c2b268a500f",
+    "manifests/init.pp": "e22636d99f3bd8d3d1a6d23ae82e5b36",
+    "manifests/cinder_scheduler.pp": "6ec0904c9940e2951e3fd5cac4aa9fc5",
+    "templates/ceph.conf.erb": "2d19fc6503af75800efc4ffe807f83c9",
+    "templates/utils/create_volume_type.sh.erb": "522f12d128820819bd165a6c8d23a4e7",
+    "manifests/utils.pp": "a66ce028f749c39e755d2cae00cb4b21",
+    "manifests/cinder_volume.pp": "33042cec308288020c5f7c4ceb80a74f",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "tests/init.pp": "5e4b89e95df8be5a82b61a38186dce1a",
+    "templates/utils/ceph_pool_make.sh.erb": "30c3f5022096f032e103deaf5c454c83",
+    "Modulefile": "b6be1fbf05999fd6121974f0c29e77db",
+    "manifests/cinder_install.pp": "cfd9ec919a4749acf0424a38005e573c",
+    "templates/cinder.conf.erb": "08ee00c66e7189b68f4badf2651e5aad",
+    "templates/init/ceph_pool_make.sh.erb": "5cb61aae472cdc2da6375eef910dcbb7"
+  },
+  "source": "UNKNOWN"
 }

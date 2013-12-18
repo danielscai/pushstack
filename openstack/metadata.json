@@ -1,28 +1,4 @@
 {
-  "checksums": {
-    "README": "aed69588c23a3fe180fa4684bafb0a5d",
-    "templates/haproxy_openstack.cfg.erb": "7999302ec66dd37a5b9825c2ca495049",
-    "Modulefile": "52abcc03fc24d4a5738e3aefab19c59c",
-    "manifests/init.pp": "6193457592762d8862e972c9e8429b6a",
-    "manifests/repo/apt.pp": "ff56257bbfdfe3791814f0e19cd5dbc5",
-    "manifests/repo/rhel.pp": "9ae78d5a2ab8692f4eed3a7b4fe0c42d",
-    "manifests/repo.pp": "c44aafce0ac8227f4e26173c3373c359",
-    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
-    "example/manifests/site.d/ceph.pp": "00ed98d3e4d47b110f48f33ee7149b74",
-    "templates/openstack-grizzly.asc.erb": "f4cfbe35d619193e85d766ca99925790",
-    "manifests/controller.pp": "0f63bfd8ca100bbd1765abf9deb1a09e",
-    "tests/init.pp": "7d4cc166e628dc9bbe43908e2925455e",
-    "manifests/all.pp": "2dba796c718494f042a44a8eb5868a1e",
-    "example/manifests/site.d/settings.pp": "f9052cb29261f7bf54234846f49d408d",
-    "manifests/repo_params.pp": "4ca1241d407e191f2c01c243e3eada53",
-    "manifests/network.pp": "481724a81b77b609f23bc8e3703ff9ef",
-    "example/manifests/site.pp": "a9f15c0134ead5e9c73c93dae881459a",
-    "manifests/params.pp": "5337fc7ad1f76b4ccfb0807dc00ff73e",
-    "manifests/compute.pp": "e7886380445b1c9dbd38bc3c6b1edf4a",
-    "example/manifests/site.d/openstack.pp": "a7f9bf9e6e76c779b3226c61bfab62bc"
-  },
-  "description": "openstack deployment puppet module",
-  "summary": "openstack deployment puppet module",
   "project_page": "dnscai.com",
   "dependencies": [
     {
@@ -79,11 +55,35 @@
     }
   ],
   "name": "pushstack-openstack",
-  "author": "pushstack",
+  "source": "UNKNOWN",
+  "license": "Apache License, Version 2.0",
+  "checksums": {
+    "manifests/repo/apt.pp": "ff56257bbfdfe3791814f0e19cd5dbc5",
+    "manifests/repo_params.pp": "4ca1241d407e191f2c01c243e3eada53",
+    "example/manifests/site.d/openstack.pp": "a7f9bf9e6e76c779b3226c61bfab62bc",
+    "manifests/params.pp": "5337fc7ad1f76b4ccfb0807dc00ff73e",
+    "manifests/repo.pp": "c44aafce0ac8227f4e26173c3373c359",
+    "Modulefile": "52abcc03fc24d4a5738e3aefab19c59c",
+    "manifests/compute.pp": "e7886380445b1c9dbd38bc3c6b1edf4a",
+    "manifests/init.pp": "6193457592762d8862e972c9e8429b6a",
+    "manifests/repo/rhel.pp": "9ae78d5a2ab8692f4eed3a7b4fe0c42d",
+    "README": "aed69588c23a3fe180fa4684bafb0a5d",
+    "example/manifests/site.d/settings.pp": "f9052cb29261f7bf54234846f49d408d",
+    "templates/openstack-grizzly.asc.erb": "f4cfbe35d619193e85d766ca99925790",
+    "manifests/all.pp": "2dba796c718494f042a44a8eb5868a1e",
+    "templates/haproxy_openstack.cfg.erb": "7999302ec66dd37a5b9825c2ca495049",
+    "manifests/network.pp": "481724a81b77b609f23bc8e3703ff9ef",
+    "tests/init.pp": "7d4cc166e628dc9bbe43908e2925455e",
+    "manifests/controller.pp": "0f63bfd8ca100bbd1765abf9deb1a09e",
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "example/manifests/site.pp": "a9f15c0134ead5e9c73c93dae881459a",
+    "example/manifests/site.d/ceph.pp": "00ed98d3e4d47b110f48f33ee7149b74"
+  },
+  "description": "openstack deployment puppet module",
+  "version": "0.1.0",
   "types": [
 
   ],
-  "version": "0.1.0",
-  "license": "Apache License, Version 2.0",
-  "source": "UNKNOWN"
+  "summary": "openstack deployment puppet module",
+  "author": "pushstack"
 }
