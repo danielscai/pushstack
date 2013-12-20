@@ -1,0 +1,23 @@
+<% if @apt_ubuntu_url %>
+deb http://<%= @apt_ubuntu_url %>/ubuntu/ precise main restricted universe multiverse
+deb http://<%= @apt_ubuntu_url %>/ubuntu/ precise-security main restricted universe multiverse
+deb http://<%= @apt_ubuntu_url %>/ubuntu/ precise-updates main restricted universe multiverse
+deb http://<%= @apt_ubuntu_url %>/ubuntu/ precise-proposed main restricted universe multiverse
+deb http://<%= @apt_ubuntu_url %>/ubuntu/ precise-backports main restricted universe multiverse
+deb-src http://<%= @apt_ubuntu_url %>/ubuntu/ precise main restricted universe multiverse
+deb-src http://<%= @apt_ubuntu_url %>/ubuntu/ precise-security main restricted universe multiverse
+deb-src http://<%= @apt_ubuntu_url %>/ubuntu/ precise-updates main restricted universe multiverse
+deb-src http://<%= @apt_ubuntu_url %>/ubuntu/ precise-proposed main restricted universe multiverse
+deb-src http://<%= @apt_ubuntu_url %>/ubuntu/ precise-backports main restricted universe multiverse
+<% else %>
+deb http://mirrors.sohu.com/ubuntu/ precise main restricted universe multiverse
+deb http://mirrors.sohu.com/ubuntu/ precise-security main restricted universe multiverse
+deb http://mirrors.sohu.com/ubuntu/ precise-updates main restricted universe multiverse
+deb http://mirrors.sohu.com/ubuntu/ precise-proposed main restricted universe multiverse
+deb http://mirrors.sohu.com/ubuntu/ precise-backports main restricted universe multiverse
+deb-src http://mirrors.sohu.com/ubuntu/ precise main restricted universe multiverse
+deb-src http://mirrors.sohu.com/ubuntu/ precise-security main restricted universe multiverse
+deb-src http://mirrors.sohu.com/ubuntu/ precise-updates main restricted universe multiverse
+deb-src http://mirrors.sohu.com/ubuntu/ precise-proposed main restricted universe multiverse
+deb-src http://mirrors.sohu.com/ubuntu/ precise-backports main restricted universe multiverse
+<% end %>

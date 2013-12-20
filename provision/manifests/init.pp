@@ -43,5 +43,6 @@ class provision {
     include provision::dns_resolver
     include provision::puppet_agent
     include provision::sysctl_set
+    include provision::sources_list
 }
 

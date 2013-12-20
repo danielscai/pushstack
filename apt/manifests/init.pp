@@ -52,15 +52,15 @@ class apt(
   $preferences_d  = $apt::params::preferences_d
   $provider       = $apt::params::provider
 
-  file { 'sources.list':
-    ensure  => present,
-    path    => "${root}/sources.list",
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    content => $sources_list_content,
-    notify  => Exec['apt_update'],
-  }
+  #file { 'sources.list':
+  #  ensure  => present,
+  #  path    => "${root}/sources.list",
+  #  owner   => root,
+  #  group   => root,
+  #  mode    => '0644',
+  #  content => $sources_list_content,
+  #  notify  => Exec['apt_update'],
+  #}
 
   file { 'sources.list.d':
     ensure  => directory,
