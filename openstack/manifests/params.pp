@@ -6,7 +6,13 @@ class openstack::params {
     }
     $openstack_host = $::openstack_host
     $vip=$::openstack_host
-
+    
+    if  $::apt_ubuntu_url {
+        $apt_ubuntu_url = $::apt_ubuntu_url
+    } else {
+        $apt_ubuntu_url = 'ubuntu-cloud.archive.canonical.com'
+    }
+    
     #if ! $::env {
     #    fail(" Global variable 'env' not defined, exist")
     #}
