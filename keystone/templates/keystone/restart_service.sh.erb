@@ -1,0 +1,7 @@
+cd /etc/init.d
+for i in keystone*; do service $i restart; done
+for i in nova-*; do service $i restart; done
+for i in quantum*; do service $i restart; done
+for i in glance-*; do service $i restart; done
+for i in cinder-*; do service $i restart; done
+cd ~

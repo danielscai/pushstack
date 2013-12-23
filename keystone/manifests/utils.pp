@@ -19,6 +19,10 @@ class keystone::utils {
         mode => 755,
         content => template("keystone/keystone/db_sync.sh.erb");
 
+        "/root/keystone/restart_service.sh":
+        mode => 755,
+        content => template("keystone/keystone/restart_service.sh.erb");  
+        
     }
 
 }
