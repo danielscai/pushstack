@@ -7,10 +7,10 @@ class openstack::params {
     $openstack_host = $::openstack_host
     $vip=$::openstack_host
     
-    if  $::apt_ubuntu_url {
-        $apt_ubuntu_url = $::apt_ubuntu_url
+    if  $::apt_mirror_ip {
+        $apt_mirror_ip = $::apt_mirror_ip
     } else {
-        $apt_ubuntu_url = 'ubuntu-cloud.archive.canonical.com'
+        $apt_mirror_ip = 'ubuntu-cloud.archive.canonical.com'
     }
     
     #if ! $::env {

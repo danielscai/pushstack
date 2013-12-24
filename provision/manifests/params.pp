@@ -26,8 +26,4 @@ class provision::params {
         $enable_dns_search = false
     }
 
-    if $::apt_ubuntu_url {
-        $apt_ubuntu_url = $::apt_ubuntu_url
-    }
-
 }

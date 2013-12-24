@@ -1,4 +1,11 @@
 class ceph::params {
+
+	if  $::apt_mirror_ip {
+        $apt_mirror_ip = $::apt_mirror_ip
+    } else {
+        $apt_mirror_ip = 'ceph.com'
+    }
+
     if ! $::ceph_conf {
         fail (" ceph_conf hash not defined ! ")
     }

@@ -1,10 +1,10 @@
 class openstack::repo::apt (
-    $apt_ubuntu_url=$openstack::params::apt_ubuntu_url
+    $apt_mirror_ip=$openstack::params::apt_mirror_ip
 ) inherits openstack::params {
       
     apt::source { 'grizzly':
         #location    => "http://ubuntu-cloud.archive.canonical.com/ubuntu",
-        location    => "http://$apt_ubuntu_url/ubuntu",
+        location    => "http://$apt_mirror_ip/ubuntu",
         release     => 'precise-updates/grizzly',
         repos       => 'main',
         include_src => false,

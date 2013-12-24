@@ -1,4 +1,6 @@
-class rabbitmq::repo {
+class rabbitmq::repo (
+    $apt_mirror_ip=$rabbitmq::params::apt_mirror_ip
+) inherits rabbitmq::params {
   case $operatingsystem {
     RedHat: {
         apt::source { 'rabbitmq':
@@ -12,7 +14,8 @@ class rabbitmq::repo {
     }
     /(Ubuntu|Debian)/: {
         apt::source { 'rabbitmq':
-            location    => 'http://www.rabbitmq.com/debian/',
+            #location    => 'http://www.rabbitmq.com/debian/',
+            location    => "http://$apt_mirror_ip/debian/",
             release     => 'testing',
             repos       => 'main',
             include_src => false,

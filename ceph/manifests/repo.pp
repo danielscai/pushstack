@@ -1,4 +1,7 @@
-class ceph::repo {
+class ceph::repo (
+    $apt_mirror_ip=$ceph::params::apt_mirror_ip,
+    $release='emperor',
+) inherits ceph::params {
     case $operatingsystem {
 
         /(Ubuntu|Debian)/: {
@@ -8,7 +11,8 @@ class ceph::repo {
             }    
            
             apt::source { 'ceph':
-                location    => 'http://ceph.com/debian-emperor/',
+                #location    => 'http://ceph.com/debian-emperor/',
+                location    => "http://$apt_mirror_ip/debian-$release/",
                 release     => "$::lsbdistcodename",
                 repos       => 'main',
                 include_src => false,
@@ -19,7 +23,7 @@ class ceph::repo {
 
         RedHat: {
             yumrepo { 'grizzly-release':
-                baseurl  => "http://ceph.com/rpm-empero/rhel6/$basearch",
+                baseurl  => "http://ceph.com/rpm-$release/rhel6/$basearch",
                 descr    => 'OpenStack Grizzly Repository',
                 enabled  => 1,
                 gpgcheck => 1,
