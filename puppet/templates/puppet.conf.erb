@@ -7,9 +7,9 @@ templatedir              = $confdir/templates
 bindaddress              = 0.0.0.0
 factpath                 = $vardir/lib/facter
 pluginsync               = true
-environment              = <%= environment %>
-#ca_server               = <%= @ca_server%>
-server                   = <%= if ( @server and !@server.empty? ) then @server elsif ( @servername and !@servername.empty? ) then @servername else @fqdn end %>
+environment              = <%= @environment %>
+ca_server                = <%= @ca_server%>
+server                   = <%= @server%>
 
 [production]
 manifest                 = $confdir/manifests/site.pp

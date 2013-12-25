@@ -1,7 +1,7 @@
 class puppet::agent (
   $version = $puppet::params::agent_version,
-  $server='',
-  $ca_server = $puppet::agent::server,
+  $server = $puppet::params::server,
+  $ca_server = $server,
   $puppetport = $puppet::params::puppetport,
   $runinterval = $puppet::params::runinterval,
 ) inherits puppet::params {

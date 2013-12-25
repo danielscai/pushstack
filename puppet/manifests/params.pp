@@ -32,4 +32,10 @@ class puppet::params {
   $service_ensure = 'running'
   $service_enable = true
 
+    if $::puppetmaster {
+        $server = $::puppetmaster
+    } else {
+        $server = $servername
+    }
+
 }
