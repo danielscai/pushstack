@@ -5,6 +5,7 @@ class neutron::agent::dhcp (
     ) inherits neutron::params {
 
     include openstack::params
+    include neutron::server
     
     $dhcp_driver =  $network_bridge ? {
         'linuxbridge' => $neutron::params::linuxbridge_driver,
