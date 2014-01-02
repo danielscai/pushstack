@@ -6,11 +6,17 @@ class glance::glance_registry {
     file {
         "/etc/glance/glance-registry.conf":
         ensure => present,
+        owner => glance,
+        group => glance,
+        mode => 0644,
         require => Package['glance-registry'],
         content => template("glance/glance-registry.conf.erb");
 
         "/etc/glance/glance-registry-paste.ini":
         ensure => present,
+        owner => glance,
+        group => glance,
+        mode => 0644,
         require => Package['glance-registry'],
         content => template("glance/glance-registry-paste.ini.erb");
     }

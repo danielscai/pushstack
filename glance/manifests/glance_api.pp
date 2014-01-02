@@ -8,11 +8,17 @@ class glance::glance_api (
     file {
         "/etc/glance/glance-api.conf":
         ensure => present,
+        owner => glance,
+        group => glance,
+        mode => 0644,
         require => Package['glance-api'],
         content => template("glance/glance-api.conf.erb");
 
         "/etc/glance/glance-api-paste.ini":
         ensure => present,
+        owner => glance,
+        group => glance,
+        mode => 0644,
         require => Package['glance-registry'],
         content => template("glance/glance-api-paste.ini.erb");
     }

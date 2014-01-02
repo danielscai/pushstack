@@ -16,12 +16,15 @@ class rabbitmq::service (
     
     file {
         '/etc/rabbitmq/rabbitmq-env.conf':
-	require => Package["$pkg"],
+        owner => root,
+        group => root,
+        mode => 0644,
+	    require => Package["$pkg"],
         content => template("rabbitmq/rabbitmq-env.conf.erb");
         
         '/etc/rabbitmq/rabbitmq.conf.d':
         ensure => directory,
-	require => Package["$pkg"],
+	    require => Package["$pkg"],
         recurse => true, purge => true, force => true;
     }
 
