@@ -8,7 +8,7 @@ class neutron::agent::linuxbridge (
 
     include neutron::common
     $linuxbridge_pkg = ["quantum-plugin-linuxbridge", 
-                "quantum-plugin-linuxbridge-agent"]
+                "quantum-plugin-linuxbridge-agent" , "python-mysqldb"]
 
     
     package { 
